@@ -1,0 +1,18 @@
+<div class="news-inline">
+  <!-- <app-image-holder [url]="news.imagesPreview" [alt]="news.title"></app-image-holder> -->
+  <div class="texts">
+      <a href="{{ news.url }}" class="news-inline-title" (click)="views(news, $event)">{{ news.title }}</a>
+      <a href="#" class="news-inline-hover-button">
+          <i class="fa fa-play"></i>
+      </a>
+      <a href="#" class="news-inline-edit-button">
+          <i class="fas fa-edit"></i>
+      </a>
+      <a href="#" class="news-inline-delete-button">
+          <i class="fas fa-trash"></i>
+      </a>
+      <span><i class="fas fa-eye"></i> {{ news.views}}</span>
+      <div innerHTML="{{ news.description }}"></div>
+      <div class="creator">By {{ news.author }}, <span>{{ news.createdAt }}</span></div>
+  </div>
+</div>

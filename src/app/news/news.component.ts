@@ -1,4 +1,6 @@
+import { News } from './../shared/models/news';
 import { Component, OnInit } from '@angular/core';
+import { FetchNewsService } from './fetch-news.service';
 
 @Component({
   selector: 'aaa-news',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class NewsComponent implements OnInit {
+  public newsList: News[] = [];
 
-  constructor() { }
+  constructor(private fetchNewsService: FetchNewsService) { }
 
   ngOnInit() {
+    this.getNews();
+  }
+
+  getNews() {
+    this.newsList = this.fetchNewsService.getNews();
   }
 
 }
