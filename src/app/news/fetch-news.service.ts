@@ -11,8 +11,7 @@ export class FetchNewsService {
 
   constructor() {}
 
-  getNews(): Observable<News[]> {
+  getNews() {
     return of(NEWS);
   }
-
 }

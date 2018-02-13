@@ -3,7 +3,6 @@ import { Base } from './base';
 export class News implements Base {
   title: string;
   url: string;
-  date: string;
   views: number;
   previewImage: string;
   description: string;
@@ -13,7 +12,5 @@ export class News implements Base {
   updatedAt: string;
   deletedAt: string;
 
-  constructor(data = {}) {
-    Object.assign(this, data);
-  }
+  constructor() { }
 }

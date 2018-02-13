@@ -357,9 +357,9 @@ select#pages-per-page{
     position: absolute;
     left: -25%;
 }
-.news-inline .texts{
-    display: flex;
-    flex-direction: column;
+.news-inline .texts > div {
+    /* display: block; */
+    /* flex-direction: column; */
     padding-right: 60px;
 }
 .news-inline .news-inline-title{
@@ -367,6 +367,7 @@ select#pages-per-page{
     font-weight: bold;
     color: #6f6f6f;
     margin-bottom: 20px;
+    display: inline-block;
 }
 .news-inline:hover .news-inline-title{
     color: #ff0000;
@@ -377,6 +378,7 @@ select#pages-per-page{
 .news-inline .news-inline-hover-button{
     position: absolute;
     left: 10px;
+    top: 10px;
     height: 250px;
     width: 250px;
     display: flex;
@@ -412,7 +414,9 @@ select#pages-per-page{
     margin-bottom: 7px;
     font-size: 18px;
 }
-
+span.views {
+  font-size: 12px;
+}
 .paginator ul{
     display: flex;
     flex-grow: 1;

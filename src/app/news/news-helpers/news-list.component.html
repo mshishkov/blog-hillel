@@ -1,18 +1,19 @@
 <div class="news-inline">
-  <!-- <app-image-holder [url]="news.imagesPreview" [alt]="news.title"></app-image-holder> -->
+  <aaa-image-holder [link]="news.previewImage" [alt]="news.title" aaaCounter [model]="news" [property]="'views'"></aaa-image-holder>
   <div class="texts">
-      <a href="{{ news.url }}" class="news-inline-title" (click)="views(news, $event)">{{ news.title }}</a>
+      <a href="{{ news.url }}" class="news-inline-title" aaaCounter [model]="news" [property]="'views'">{{ news.title }}</a>
       <a href="#" class="news-inline-hover-button">
-          <i class="fa fa-play"></i>
+          <i class="fa fa-play" aaaCounter [model]="news" [property]="'views'"></i>
       </a>
       <a href="#" class="news-inline-edit-button">
           <i class="fas fa-edit"></i>
       </a>
-      <a href="#" class="news-inline-delete-button">
+      <a href="#" class="news-inline-delete-button" aaaRemove [model]="news">
           <i class="fas fa-trash"></i>
       </a>
-      <span><i class="fas fa-eye"></i> {{ news.views}}</span>
-      <div innerHTML="{{ news.description }}"></div>
-      <div class="creator">By {{ news.author }}, <span>{{ news.createdAt }}</span></div>
+      <span class="views"><i class="fas fa-eye"></i> {{ news.views}}</span>
+      <div class="html" innerHTML="{{ news.description }}"></div>
+      <div class="ratings"></div>
+      <div class="creator">{{ news.author ? 'By ' + news.author + ', '  : '' }}<span>{{ news.createdAt }}</span></div>
   </div>
 </div>
