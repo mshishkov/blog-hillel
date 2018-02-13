@@ -133,7 +133,6 @@ small {
 }
 .menu-opened .container{
     padding-left: 200px;
-
 }
 .header{
     height: 80px;
@@ -298,7 +297,7 @@ a.header-logo small{
 }
 .content{
     position: relative;
-    padding: 90px 10px 10px 200px;
+    padding: 90px 10px 10px 80px;
 }
 .left-sidebar{
     width: 180px;

@@ -8,6 +8,9 @@ import { PopupsModule } from './components/popups/popups.module';
 import { ImageHolderComponent } from './components/image-holder/image-holder.component';
 import { CounterDirective } from './directives/counter.directive';
 import { RemoveDirective } from './directives/remove.directive';
+import { SelectableDirective } from './directives/selectable.directive';
+import { HeaderLogoComponent } from './components/header-logo/header-logo.component';
+import { HeaderAuthComponent } from './components/header-auth/header-auth.component';
 
 @NgModule({
   imports: [
@@ -21,7 +24,10 @@ import { RemoveDirective } from './directives/remove.directive';
     SidebarComponent,
     ImageHolderComponent,
     CounterDirective,
-    RemoveDirective
+    RemoveDirective,
+    SelectableDirective,
+    HeaderLogoComponent,
+    HeaderAuthComponent
   ],
   exports: [
     SharedComponent,
@@ -30,7 +36,10 @@ import { RemoveDirective } from './directives/remove.directive';
     SidebarComponent,
     ImageHolderComponent,
     CounterDirective,
-    RemoveDirective
+    RemoveDirective,
+    SelectableDirective,
+    HeaderLogoComponent,
+    HeaderAuthComponent
   ]
 })
 export class SharedModule { }

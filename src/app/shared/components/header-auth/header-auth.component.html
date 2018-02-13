@@ -1,0 +1,41 @@
+<div class="auth-container">
+  <div class="auth-wrapper">
+
+    <!-- hiddin when non-authorized -->
+    <div class="img-holder" *ngIf="true">
+      <img src="" class="" />
+    </div>
+    <div class="username" *ngIf="true">Test name
+      <br>
+      <small>@som place</small>
+    </div>
+    <a href="#" class="user-logout" *ngIf="true" (click)="logout()">
+      <i class="fas fa-sign-out-alt"></i>
+    </a>
+
+    <!-- shown for non-athorized -->
+    <div class="login-text" *ngIf="!true">Authorization</div>
+    <a href="#" class="user-login" *ngIf="!true" (click)="login()">
+      <i class="fas fa-sign-in-alt"></i>
+    </a>
+  </div>
+
+  <!-- hidden when non-authorized -->
+  <div class="auth-dropdown-wrapper" *ngIf="true">
+    <ul class="authdropdown-list">
+      <li>
+        <a href="#">
+          <i class="far fa-address-card"></i> My profile</a>
+      </li>
+      <!-- secured part for writers/admins -->
+      <li *ngIf="true">
+        <a href="#">
+          <i class="fas fa-plus-square"></i> Create news</a>
+      </li>
+      <li>
+        <a href="#" (click)="logout()">
+          <i class="fas fa-sign-out-alt"></i> Logout</a>
+      </li>
+    </ul>
+  </div>
+</div>
