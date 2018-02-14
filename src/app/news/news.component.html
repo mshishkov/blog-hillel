@@ -1,4 +1,4 @@
-<div class="news-list">
+<div class="news-list" *ngIf="newsList.length">
   <aaa-news-list *ngFor="let news of newsList" [news]="news"></aaa-news-list>
 </div>
 

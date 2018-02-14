@@ -1,19 +1,35 @@
-<div class="news-inline" aaaSelectable [color]="'rgb(225, 255, 225)'">
-  <aaa-image-holder [link]="news.previewImage" [alt]="news.title" aaaCounter [model]="news" [property]="'views'"></aaa-image-holder>
+<div class="news-inline" *ngIf="news.active" [ngClass]="{'editing': news.editing}">
+  <aaa-image-holder [link]="news.previewImage" [alt]="news.title" aaaCounter [model]="news" [property]="'views'" *ngIf="!news.editing"></aaa-image-holder>
   <div class="texts">
+    <div *ngIf="!news.editing">
       <a href="{{ news.url }}" class="news-inline-title" aaaCounter [model]="news" [property]="'views'">{{ news.title }}</a>
       <a href="#" class="news-inline-hover-button">
-          <i class="fa fa-play" aaaCounter [model]="news" [property]="'views'"></i>
+        <i class="fa fa-play" aaaCounter [model]="news" [property]="'views'"></i>
       </a>
-      <a href="#" class="news-inline-edit-button">
-          <i class="fas fa-edit"></i>
+      <a href="#" class="news-inline-edit-button" (click)="news.editing = true">
+        <i class="fas fa-edit"></i>
       </a>
       <a href="#" class="news-inline-delete-button" aaaRemove [model]="news">
-          <i class="fas fa-trash"></i>
+        <i class="fas fa-trash"></i>
       </a>
       <span class="views"><i class="fas fa-eye"></i> {{ news.views}}</span>
       <div class="html" innerHTML="{{ news.description }}"></div>
-      <div class="ratings"></div>
       <div class="creator">{{ news.author ? 'By ' + news.author + ', '  : '' }}<span>{{ news.createdAt }}</span></div>
+    </div>
+    <form *ngIf="news.editing" class="edit-news" (submit)="save($event, news)">
+      <div class="editor-line">
+        <label for="title">Title:</label>
+        <input type="text" name="title" [(ngModel)]="news.title">
+      </div>
+      <div class="editor-line">
+          <label for="title">Description:</label>
+          <textarea name="description" [(ngModel)]="news.description"></textarea>
+      </div>
+      <div class="editor-line">
+          <label for="title">Image link:</label>
+          <input type="text" name="previewImage" [(ngModel)]="news.previewImage">
+      </div>
+      <button type="submit">Save changes</button>
+    </form>
   </div>
 </div>

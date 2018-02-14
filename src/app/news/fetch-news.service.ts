@@ -12,6 +12,24 @@ export class FetchNewsService {
   constructor() {}
 
   getNews() {
-    return of(NEWS);
+    return of(NEWS.filter(news => news.active));
   }
+
+  remove(news: News) {
+    const index = NEWS.indexOf(news);
+    const confirmed = confirm('Are you sure?');
+    if (!confirmed) {
+      return;
+    }
+    news.active = false;
+  }
+
+  getDeletedNews() {
+    return of(NEWS.filter(news => !news.active));
+  }
+
+  restore() {
+    NEWS.forEach(news => news.active = true);
+  }
+
 }

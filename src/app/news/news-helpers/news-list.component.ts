@@ -1,5 +1,6 @@
 import { News } from './../../shared/models/news';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: 'aaa-news-list',
@@ -12,5 +13,10 @@ export class NewsListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  save(event: Event, news: News) {
+    event.preventDefault();
+    news.editing = false;
   }
 }

@@ -1,3 +1,4 @@
+import { FetchNewsService } from './../../news/fetch-news.service';
 import { Directive, HostListener, Input, ElementRef } from '@angular/core';
 
 @Directive({
@@ -6,11 +7,11 @@ import { Directive, HostListener, Input, ElementRef } from '@angular/core';
 export class RemoveDirective {
   @Input('model') model;
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef, private fetchService: FetchNewsService) { }
 
   @HostListener('click', ['$event']) onClick(event) {
     event.preventDefault();
-    console.log('test remove');
+    this.fetchService.remove(this.model);
   }
 
 }

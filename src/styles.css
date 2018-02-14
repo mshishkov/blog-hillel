@@ -337,8 +337,20 @@ select#pages-per-page{
     width: 100%;
     clear: both;
 }
-.news-inline:hover{
+.news-inline:hover,
+.news-inline.editing{
     background: #f5f5f5;
+}
+.news-inline.editing{
+  padding: 20px;
+}
+.news-inline.inactive,
+.news-inline.inactive:hover{
+  background-color: #5d5d5d!important;
+  cursor: not-allowed;
+}
+.news-inline.inactive *{
+  cursor: not-allowed;
 }
 .news-inline .img-holder{
     width: 250px;
@@ -371,8 +383,14 @@ select#pages-per-page{
 .news-inline:hover .news-inline-title{
     color: #ff0000;
 }
+.news-inline.inactive:hover .news-inline-title{
+  color: #6f6f6f;
+}
 .news-inline:hover .news-inline-title:hover{
-    text-decoration: underline;
+  text-decoration: underline;
+}
+.news-inline.inactive:hover .news-inline-title:hover{
+  text-decoration: none;
 }
 .news-inline .news-inline-hover-button{
     position: absolute;
@@ -405,6 +423,16 @@ select#pages-per-page{
     background: #fff;
     color: #333;
     border: 2px solid #aaa;
+}
+.news-inline.inactive:hover .news-inline-hover-button .fa:hover{
+  padding: 20px;
+  background: transparent;
+  color: #333;
+  border: 2px solid transparent;
+}
+.news-inline.inactive:hover .news-inline-hover-button .fa,
+.news-inline.inactive:hover .news-inline-hover-button .fa:hover{
+  color: transparent;
 }
 .news-inline:hover .news-inline-hover-button{
     opacity: 1;
@@ -534,6 +562,11 @@ a.news-inline-delete-button {
   color: #afafaf;
   z-index: 10;
   transition: all 0.2s ease-in-out;
+  display: none;
+}
+.news-inline:hover a.news-inline-edit-button,
+.news-inline:hover a.news-inline-delete-button{
+  display: block;
 }
 a.news-inline-delete-button{
   top: 50px;
@@ -542,4 +575,41 @@ a.news-inline-edit-button:hover,
 a.news-inline-delete-button:hover{
   background: #333;
   color: #fff;
+}
+.deletedCount{
+  margin: 30px 0;
+}
+.deletedCount span{
+  display: inline-block;
+  margin-left: 30px;
+  border: 1px solid rgba(47,47,47,0.5);
+  background: transparent;
+  cursor: pointer;
+  padding: 8px 15px;
+  transition: all 0.2s ease-in-out;
+}
+.deletedCount span:hover{
+  background: #ea2525;
+  color: #fff;
+}
+.editor-line{
+  margin-bottom: 10px;
+  display: inline-block;
+  width: 100%;
+}
+.editor-line label{
+  display: inline-block;
+  font-weight: bold;
+  width: 150px;
+  float: left;
+}
+.editor-line input,
+.editor-line textarea{
+  padding: 5px 7.5px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid rgba(47,47,47,0.2);
+  border-radius: 3px;
+  margin: 2px 0 5px;
 }

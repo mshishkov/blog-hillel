@@ -9,6 +9,7 @@ export const NEWS: News[] = [
       description: 'US entrepreneur Elon Musk has launched his new rocket, the Falcon Heavy, from the Kennedy Space Center in Florida.',
       html: ``,
       author: 'Jonathan Amos',
+      active: true,
       createdAt: new Date('2018-02-07').toLocaleDateString(),
       updatedAt: null,
       deletedAt: null
@@ -21,6 +22,7 @@ export const NEWS: News[] = [
       description: 'The Royal Navy flagship HMS Ocean has sailed into its Devonport base for the final time.',
       html: ``,
       author: '',
+      active: true,
       createdAt: new Date('2018-02-08').toLocaleDateString(),
       updatedAt: null,
       deletedAt: null
@@ -35,6 +37,7 @@ export const NEWS: News[] = [
                     but there are fears they could be exploited.`,
       html: ``,
       author: 'Kevin Ponniah, BBC News, Kiev',
+      active: true,
       createdAt: new Date('2018-02-13 7:28:00').toLocaleDateString(),
       updatedAt: null,
       deletedAt: null
@@ -48,6 +51,7 @@ export const NEWS: News[] = [
                   registered in the British Virgin Islands, BBC analysis has found.`,
       html: ``,
       author: 'Andy Verity, BBC Economics correspondent',
+      active: true,
       createdAt: new Date('2018-02-13 05:30:00').toLocaleDateString(),
       updatedAt: null,
       deletedAt: null
@@ -61,6 +65,7 @@ export const NEWS: News[] = [
                     latest science fiction film but a real-life environmental thriller.`,
       html: ``,
       author: '',
+      active: true,
       createdAt: new Date('2018-02-12').toLocaleDateString(),
       updatedAt: null,
       deletedAt: null

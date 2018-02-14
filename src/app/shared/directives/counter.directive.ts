@@ -11,7 +11,9 @@ export class CounterDirective {
 
   @HostListener('click', ['$event']) onClick(event) {
     event.preventDefault();
-    this.model[this.property]++;
+    if (this.model.active) {
+      this.model[this.property]++;
+    }
   }
 
 }

@@ -8,9 +8,9 @@ import { PopupsModule } from './components/popups/popups.module';
 import { ImageHolderComponent } from './components/image-holder/image-holder.component';
 import { CounterDirective } from './directives/counter.directive';
 import { RemoveDirective } from './directives/remove.directive';
-import { SelectableDirective } from './directives/selectable.directive';
 import { HeaderLogoComponent } from './components/header-logo/header-logo.component';
 import { HeaderAuthComponent } from './components/header-auth/header-auth.component';
+import { NewsModule } from '../news/news.module';
 
 @NgModule({
   imports: [
@@ -25,7 +25,6 @@ import { HeaderAuthComponent } from './components/header-auth/header-auth.compon
     ImageHolderComponent,
     CounterDirective,
     RemoveDirective,
-    SelectableDirective,
     HeaderLogoComponent,
     HeaderAuthComponent
   ],
@@ -37,7 +36,6 @@ import { HeaderAuthComponent } from './components/header-auth/header-auth.compon
     ImageHolderComponent,
     CounterDirective,
     RemoveDirective,
-    SelectableDirective,
     HeaderLogoComponent,
     HeaderAuthComponent
   ]
