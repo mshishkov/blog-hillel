@@ -6,7 +6,7 @@
       <a href="#" class="news-inline-hover-button">
         <i class="fa fa-play" aaaCounter [model]="news" [property]="'views'"></i>
       </a>
-      <a href="#" class="news-inline-edit-button" (click)="news.editing = true">
+      <a href="#" class="news-inline-edit-button" aaaEditInline [model]="news">
         <i class="fas fa-edit"></i>
       </a>
       <a href="#" class="news-inline-delete-button" aaaRemove [model]="news">
@@ -23,7 +23,7 @@
       </div>
       <div class="editor-line">
           <label for="title">Description:</label>
-          <textarea name="description" [(ngModel)]="news.description"></textarea>
+          <textarea name="description" rows="10" [(ngModel)]="news.description"></textarea>
       </div>
       <div class="editor-line">
           <label for="title">Image link:</label>

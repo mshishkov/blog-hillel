@@ -10,6 +10,7 @@ export const NEWS: News[] = [
       html: ``,
       author: 'Jonathan Amos',
       active: true,
+      editing: false,
       createdAt: new Date('2018-02-07').toLocaleDateString(),
       updatedAt: null,
       deletedAt: null
@@ -23,6 +24,7 @@ export const NEWS: News[] = [
       html: ``,
       author: '',
       active: true,
+      editing: false,
       createdAt: new Date('2018-02-08').toLocaleDateString(),
       updatedAt: null,
       deletedAt: null
@@ -38,6 +40,7 @@ export const NEWS: News[] = [
       html: ``,
       author: 'Kevin Ponniah, BBC News, Kiev',
       active: true,
+      editing: false,
       createdAt: new Date('2018-02-13 7:28:00').toLocaleDateString(),
       updatedAt: null,
       deletedAt: null
@@ -52,6 +55,7 @@ export const NEWS: News[] = [
       html: ``,
       author: 'Andy Verity, BBC Economics correspondent',
       active: true,
+      editing: false,
       createdAt: new Date('2018-02-13 05:30:00').toLocaleDateString(),
       updatedAt: null,
       deletedAt: null
@@ -66,6 +70,7 @@ export const NEWS: News[] = [
       html: ``,
       author: '',
       active: true,
+      editing: false,
       createdAt: new Date('2018-02-12').toLocaleDateString(),
       updatedAt: null,
       deletedAt: null

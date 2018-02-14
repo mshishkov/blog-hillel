@@ -11,6 +11,7 @@ import { RemoveDirective } from './directives/remove.directive';
 import { HeaderLogoComponent } from './components/header-logo/header-logo.component';
 import { HeaderAuthComponent } from './components/header-auth/header-auth.component';
 import { NewsModule } from '../news/news.module';
+import { EditInlineDirective } from './directives/edit-inline.directive';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { NewsModule } from '../news/news.module';
     CounterDirective,
     RemoveDirective,
     HeaderLogoComponent,
-    HeaderAuthComponent
+    HeaderAuthComponent,
+    EditInlineDirective
   ],
   exports: [
     SharedComponent,
@@ -37,7 +39,8 @@ import { NewsModule } from '../news/news.module';
     CounterDirective,
     RemoveDirective,
     HeaderLogoComponent,
-    HeaderAuthComponent
+    HeaderAuthComponent,
+    EditInlineDirective
   ]
 })
 export class SharedModule { }
