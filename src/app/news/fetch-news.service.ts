@@ -24,12 +24,4 @@ export class FetchNewsService {
     news.active = false;
   }
 
-  getDeletedNews() {
-    return of(NEWS.filter(news => !news.active));
-  }
-
-  restore() {
-    NEWS.forEach(news => news.active = true);
-  }
-
 }

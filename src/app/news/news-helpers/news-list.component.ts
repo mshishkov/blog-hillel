@@ -19,4 +19,5 @@ export class NewsListComponent implements OnInit {
     event.preventDefault();
     news.editing = false;
   }
+
 }

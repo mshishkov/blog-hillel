@@ -9,27 +9,15 @@ import { FetchNewsService } from './fetch-news.service';
 })
 export class NewsComponent implements OnInit {
   public newsList: News[] = [];
-  public deletedList: News[] = [];
 
   constructor(private fetchNewsService: FetchNewsService) { }
 
   ngOnInit() {
     this.getNews();
-    this.getDeleted();
   }
 
   getNews(): void {
     this.fetchNewsService.getNews()
       .subscribe(news => this.newsList = news);
   }
-
-  getDeleted(): void {
-    this.fetchNewsService.getDeletedNews()
-      .subscribe(news => this.deletedList = news);
-  }
-
-  restore(): void {
-    this.fetchNewsService.restore();
-  }
-
 }

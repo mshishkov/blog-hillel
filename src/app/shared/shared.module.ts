@@ -12,6 +12,7 @@ import { HeaderLogoComponent } from './components/header-logo/header-logo.compon
 import { HeaderAuthComponent } from './components/header-auth/header-auth.component';
 import { NewsModule } from '../news/news.module';
 import { EditInlineDirective } from './directives/edit-inline.directive';
+import { MarkupHtmlDirective } from './directives/markup-html.directive';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { EditInlineDirective } from './directives/edit-inline.directive';
     RemoveDirective,
     HeaderLogoComponent,
     HeaderAuthComponent,
-    EditInlineDirective
+    EditInlineDirective,
+    MarkupHtmlDirective
   ],
   exports: [
     SharedComponent,
@@ -40,7 +42,8 @@ import { EditInlineDirective } from './directives/edit-inline.directive';
     RemoveDirective,
     HeaderLogoComponent,
     HeaderAuthComponent,
-    EditInlineDirective
+    EditInlineDirective,
+    MarkupHtmlDirective
   ]
 })
 export class SharedModule { }

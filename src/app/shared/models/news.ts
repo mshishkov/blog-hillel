@@ -14,6 +14,7 @@ export class News implements Base, Ieditable {
      public editing: boolean = false,
      public createdAt: string = '',
      public updatedAt: string = '',
-     public deletedAt: string = ''
+     public deletedAt: string = '',
+     public tags: string[] = []
    ) { }
 }
