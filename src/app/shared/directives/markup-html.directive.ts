@@ -8,9 +8,8 @@ export class MarkupHtmlDirective {
   constructor(private el: ElementRef) { }
 
   @HostListener('kewdown', ['$enevt.target']) onKeyDown() {
-    let text = this.el.nativeElement.innerHTML;
-
-    console.log(text);
+    // let text = this.el.nativeElement.innerHTML;
+    // console.log(text);
 
   }
 

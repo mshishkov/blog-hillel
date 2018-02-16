@@ -1,3 +1,3 @@
-export interface Ieditable {
+export interface IEditable {
   editing: boolean;
 }

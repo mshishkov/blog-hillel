@@ -1,7 +1,7 @@
-import { Ieditable } from './ieditable';
-import { Base } from './base';
+import { IEditable } from './ieditable';
+import { IBase } from './ibase';
 
-export class News implements Base, Ieditable {
+export class News implements IBase, IEditable {
    constructor(
      public title: string = '',
      public url: string = '',
