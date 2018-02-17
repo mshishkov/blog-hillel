@@ -1,0 +1,15 @@
+<form *ngIf="news.editing" class="edit-news" (submit)="save($event, news)">
+  <div class="editor-line">
+    <label for="title">Title:</label>
+    <input type="text" name="title" [(ngModel)]="news.title">
+  </div>
+  <div class="editor-line">
+    <label for="title">Description:</label>
+    <textarea name="description" rows="10" [(ngModel)]="news.description"></textarea>
+  </div>
+  <div class="editor-line">
+    <label for="title">Image link:</label>
+    <input type="text" name="previewImage" [(ngModel)]="news.previewImage">
+  </div>
+  <button type="submit">Save changes</button>
+</form>

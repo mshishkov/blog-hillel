@@ -1,0 +1,32 @@
+<div class="news-pines" *ngIf="news.active" [ngClass]="{'editing': news.editing}">
+  
+  <a href="{{ news.url }}" class="news-title" aaaCounter [model]="news" [property]="'views'">{{ news.title }}</a>
+  <div class="creator">{{ news.author ? 'By ' + news.author + ', ' : '' }}
+    <span>{{ news.createdAt }}</span>
+  </div>
+
+  <a href="#" class="news-inline-edit-button" aaaEditInline [model]="news">
+    <i class="fas fa-edit"></i>
+  </a>
+  <a href="#" class="news-inline-delete-button" aaaRemove [model]="news">
+    <i class="fas fa-trash"></i>
+  </a>
+  
+  <aaa-image-holder [link]="news.previewImage" [alt]="news.title" aaaCounter [model]="news" [property]="'views'" *ngIf="!news.editing"></aaa-image-holder>
+  <div class="texts">
+    <div *ngIf="!news.editing">
+      
+      <a href="#" class="news-inline-hover-button">
+        <i class="fa fa-play" aaaCounter [model]="news" [property]="'views'"></i>
+      </a>
+      <span class="views">
+        <i class="fas fa-eye"></i> {{ news.views}}</span>
+      <div class="html" innerHTML="{{ news.description }}"></div>
+      
+    </div>
+
+    <aaa-news-inline-form [news]="news"></aaa-news-inline-form>
+
+  </div>
+</div>
+

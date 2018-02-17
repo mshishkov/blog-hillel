@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { NewsModule } from './news/news.module';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+import { NewsEditorModule } from './news-editor/news-editor.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     NewsModule,
     CoreModule,
-    SharedModule
+    SharedModule,
+    NewsEditorModule,
+    FormsModule
   ],
   providers: [
     FetchNewsService

@@ -4,18 +4,16 @@ import { NewsComponent } from './news.component';
 import { NewsListComponent } from './news-helpers/news-list.component';
 import { NewsPreviewComponent } from './news-helpers/news-preview.component';
 import { SharedModule } from '../shared/shared.module';
-import { FormsModule } from '@angular/forms';
-import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { NewsListPinesComponent } from './news-helpers/news-list-pines.component';
+import { NewsEditorModule } from '../news-editor/news-editor.module';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
-    FormsModule,
-    FroalaEditorModule.forRoot(),
-    FroalaViewModule.forRoot()
+    NewsEditorModule
   ],
-  declarations: [NewsComponent, NewsListComponent, NewsPreviewComponent],
-  exports: [NewsComponent, NewsListComponent, NewsPreviewComponent]
+  declarations: [NewsComponent, NewsListComponent, NewsPreviewComponent, NewsListPinesComponent],
+  exports: [NewsComponent, NewsListComponent, NewsPreviewComponent, NewsListPinesComponent]
 })
 export class NewsModule { }

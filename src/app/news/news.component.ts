@@ -1,5 +1,6 @@
 import { News } from './../shared/models/news';
 import { Component, OnInit } from '@angular/core';
+import { NgSwitch } from '@angular/common';
 import { FetchNewsService } from './fetch-news.service';
 
 @Component({
@@ -10,12 +11,13 @@ import { FetchNewsService } from './fetch-news.service';
 export class NewsComponent implements OnInit {
   public newsList: News[] = [];
   public deletedList: News[] = [];
+  public viewMode: string;
 
   constructor(private fetchNewsService: FetchNewsService) { }
 
   ngOnInit() {
+    this.viewMode = 'rows';
     this.getNews();
-    this.getDeleted();
   }
 
   getNews(): void {
@@ -23,13 +25,7 @@ export class NewsComponent implements OnInit {
       .subscribe(news => this.newsList = news);
   }
 
-  getDeleted(): void {
-    this.fetchNewsService.getDeletedNews()
-      .subscribe(news => this.deletedList = news);
+  switchMode(mode: string) {
+    this.viewMode = mode;
   }
-
-  restore(): void {
-    this.fetchNewsService.restore();
-  }
-
 }
