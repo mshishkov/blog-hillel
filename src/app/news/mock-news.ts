@@ -13,7 +13,8 @@ export const NEWS: News[] = [
       editing: false,
       createdAt: new Date('2018-02-07').toLocaleDateString(),
       updatedAt: null,
-      deletedAt: null
+      deletedAt: null,
+      tags: ['science', 'environment']
     },
     {
       title: `HMS Ocean sails into Devonport base for the final time`,
@@ -27,7 +28,8 @@ export const NEWS: News[] = [
       editing: false,
       createdAt: new Date('2018-02-08').toLocaleDateString(),
       updatedAt: null,
-      deletedAt: null
+      deletedAt: null,
+      tags: ['uk', 'england', 'devon']
     },
     {
       title: `In search of surrogates, foreign couples descend on Ukraine`,
@@ -43,7 +45,8 @@ export const NEWS: News[] = [
       editing: false,
       createdAt: new Date('2018-02-13 7:28:00').toLocaleDateString(),
       updatedAt: null,
-      deletedAt: null
+      deletedAt: null,
+      tags: ['world', 'europe', 'ukraine']
     },
     {
       title: `Firms on Caribbean island chain own 23,000 UK properties`,
@@ -58,7 +61,8 @@ export const NEWS: News[] = [
       editing: false,
       createdAt: new Date('2018-02-13 05:30:00').toLocaleDateString(),
       updatedAt: null,
-      deletedAt: null
+      deletedAt: null,
+      tags: ['world', 'europe']
     },
     {
       title: `New crayfish that doesn't need males to mate becomes all-powerful`,
@@ -73,6 +77,7 @@ export const NEWS: News[] = [
       editing: false,
       createdAt: new Date('2018-02-12').toLocaleDateString(),
       updatedAt: null,
-      deletedAt: null
+      deletedAt: null,
+      tags: ['world']
     }
 ];

@@ -1,7 +1,7 @@
-import { Ieditable } from './ieditable';
-import { Base } from './base';
+import { IEditable } from './ieditable';
+import { IBase } from './ibase';
 
-export class News implements Base, Ieditable {
+export class News implements IBase, IEditable {
    constructor(
      public title: string = '',
      public url: string = '',
@@ -14,6 +14,7 @@ export class News implements Base, Ieditable {
      public editing: boolean = false,
      public createdAt: string = '',
      public updatedAt: string = '',
-     public deletedAt: string = ''
+     public deletedAt: string = '',
+     public tags: string[] = []
    ) { }
 }

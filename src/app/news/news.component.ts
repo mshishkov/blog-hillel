@@ -10,7 +10,6 @@ import { FetchNewsService } from './fetch-news.service';
 })
 export class NewsComponent implements OnInit {
   public newsList: News[] = [];
-  public deletedList: News[] = [];
   public viewMode: string;
 
   constructor(private fetchNewsService: FetchNewsService) { }
