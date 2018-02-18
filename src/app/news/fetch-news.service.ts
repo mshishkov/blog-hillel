@@ -12,6 +12,7 @@ export class FetchNewsService {
   constructor() {}
 
   getNews() {
+    console.log('from service');
     return of(NEWS.filter(news => news.active));
   }
 

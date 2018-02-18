@@ -1,20 +1,22 @@
-import { IEditable } from './ieditable';
-import { IBase } from './ibase';
 
-export class News implements IBase, IEditable {
-   constructor(
-     public title: string = '',
-     public url: string = '',
-     public views: number = 0,
-     public previewImage: string = '',
-     public description: string = '',
-     public html: string = '',
-     public author: string = '',
-     public active: boolean = false,
-     public editing: boolean = false,
-     public createdAt: string = '',
-     public updatedAt: string = '',
-     public deletedAt: string = '',
-     public tags: string[] = []
-   ) { }
+export class News {
+  title: string;
+  url: string;
+  views: number;
+  previewImage: string;
+  description: string;
+  html: string;
+  author: string;
+  active: boolean;
+  editing: boolean;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string;
+  tags: string[];
+
+  constructor(params = {}) {
+    for (const [key, value] of Object.entries(params)) {
+      this[key] = value;
+    }
+  }
 }

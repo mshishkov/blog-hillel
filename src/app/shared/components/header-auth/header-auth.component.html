@@ -2,22 +2,28 @@
   <div class="auth-wrapper">
 
     <!-- hiddin when non-authorized -->
-    <div class="img-holder" *ngIf="true">
-      <img src="/assets/images/defaul-person.jpg" class="" />
-    </div>
-    <div class="username" *ngIf="true">Test name
-      <br>
-      <small>@some place</small>
-    </div>
-    <a href="#" class="user-logout" *ngIf="true" (click)="logout()">
-      <i class="fas fa-sign-out-alt"></i>
-    </a>
+    <ng-container *ngIf="currentUser">
+      <div class="img-holder" >
+        <img src="{{ currentUser.photo }}" class="" />
+      </div>
+      <div class="username">{{ currentUser.firstName + ' ' + currentUser.lastName}}
+        <br>
+        <small>@{{ currentUser.occupation }}</small>
+      </div>
+      <a href="#" class="user-logout" (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i>
+      </a>
+    </ng-container>
+    
 
     <!-- shown for non-athorized -->
-    <div class="login-text" *ngIf="!true">Authorization</div>
-    <a href="#" class="user-login" *ngIf="!true" (click)="login()">
-      <i class="fas fa-sign-in-alt"></i>
-    </a>
+    <ng-container *ngIf="!currentUser">
+      <div class="login-text">Authorization</div>
+      <a href="#" class="user-login" (click)="login()">
+        <i class="fas fa-sign-in-alt"></i>
+      </a>  
+    </ng-container>
+    
   </div>
 
   <!-- hidden when non-authorized -->
