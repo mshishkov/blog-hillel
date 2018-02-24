@@ -11,7 +11,7 @@ export class EditInlineDirective {
 
   @HostListener('click', ['$event']) onclick(event) {
     event.preventDefault();
-    if (this.model !== null && typeof this.model === typeof News) {
+    if (this.model !== null) {
       this.model.editing = true;
     }
   }

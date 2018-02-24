@@ -13,7 +13,7 @@ export class CounterDirective {
   @HostListener('click', ['$event']) onClick(event) {
     event.preventDefault();
 
-    if (this.model === null || typeof this.model !== typeof News || this.property === '') {
+    if (this.model === null || this.property === '') {
       return;
     }
 
