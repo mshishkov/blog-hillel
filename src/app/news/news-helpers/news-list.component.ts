@@ -1,6 +1,9 @@
 import { News } from './../../shared/models/news';
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { EventEmitter } from 'events';
+import { NgSwitch, Location } from '@angular/common';
+import { FetchNewsService } from '../fetch-news.service';
+import { Router, ActivatedRoute  } from '@angular/router';
 
 @Component({
   selector: 'aaa-news-list',
@@ -8,16 +11,29 @@ import { EventEmitter } from 'events';
   styles: []
 })
 export class NewsListComponent implements OnInit {
-  @Input() news: News;
+  public newsList: News[] = [];
+  public viewMode: string;
 
-  constructor() { }
+  constructor(
+    private fetchNewsService: FetchNewsService,
+    private route: Router,
+    private avtivatedRoute: ActivatedRoute,
+    private location: Location
+  ) { }
 
   ngOnInit() {
+    this.viewMode = 'rows';
+    this.getNews();
   }
 
-  save(event: Event, news: News) {
+  getNews(): void {
+    this.fetchNewsService
+    .getNews().subscribe(news => this.newsList = news);
+  }
+
+  switchMode(event: Event, mode: string) {
     event.preventDefault();
-    news.editing = false;
+    this.viewMode = mode;
   }
 
 }

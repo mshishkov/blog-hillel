@@ -8,6 +8,11 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { NewsEditorModule } from './news-editor/news-editor.module';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+
+import { NewsComponent } from './news/news.component';
+import { AuthorsModule } from './authors/authors.module';
+import { NewsResolverService } from './news/news-resolver.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,9 @@ import { FormsModule } from '@angular/forms';
     CoreModule,
     SharedModule,
     NewsEditorModule,
-    FormsModule
+    FormsModule,
+    AuthorsModule,
+    RouterModule.forRoot([])
   ],
   providers: [
     FetchNewsService

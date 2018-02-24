@@ -13,11 +13,22 @@ import { HeaderAuthComponent } from './components/header-auth/header-auth.compon
 import { NewsModule } from '../news/news.module';
 import { EditInlineDirective } from './directives/edit-inline.directive';
 import { MarkupHtmlDirective } from './directives/markup-html.directive';
+import { RouterModule, Routes } from '@angular/router';
+import { NewsListComponent } from '../news/news-helpers/news-list.component';
+import { NewsResolverService } from '../news/news-resolver.service';
+import { NewsComponent } from '../news/news.component';
+
+export const aaaRoutes: Routes = [
+  {path: 'news', component: NewsListComponent},
+  {path: 'news/:slug', component: NewsComponent, resolve: NewsResolverService },
+  {path: '', pathMatch: 'full', redirectTo: '/news'}
+];
 
 @NgModule({
   imports: [
     CommonModule,
-    PopupsModule
+    PopupsModule,
+    RouterModule.forChild(aaaRoutes)
   ],
   declarations: [
     SharedComponent,
@@ -43,7 +54,8 @@ import { MarkupHtmlDirective } from './directives/markup-html.directive';
     HeaderLogoComponent,
     HeaderAuthComponent,
     EditInlineDirective,
-    MarkupHtmlDirective
+    MarkupHtmlDirective,
+    RouterModule
   ]
 })
 export class SharedModule { }

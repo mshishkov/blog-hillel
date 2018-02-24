@@ -1,3 +1,21 @@
-<p>
-  news-preview works!
-</p>
+<div class="news-inline" *ngIf="news.active" [ngClass]="{'editing': news.editing}">
+  <aaa-image-holder [link]="news.previewImage" [alt]="news.title" *ngIf="!news.editing"></aaa-image-holder>
+  <div class="texts">
+    <div *ngIf="!news.editing">
+      <a href="#" [routerLink]="['/news', news.slug]" class="news-inline-title">{{ news.title }}</a>
+      <a href="#" class="news-inline-hover-button">
+        <i class="fa fa-play"></i>
+      </a>
+      <a href="#" class="news-inline-edit-button" aaaEditInline [model]="news">
+        <i class="fas fa-edit"></i>
+      </a>
+      <a href="#" class="news-inline-delete-button" aaaRemove [model]="news">
+        <i class="fas fa-trash"></i>
+      </a>
+      <span class="views"><i class="fas fa-eye"></i> {{ news.views}}</span>
+      <div class="html" innerHTML="{{ news.description }}" aaaMarkupHtml></div>
+      <div class="creator">{{ news.author ? 'By ' + news.author + ', '  : '' }}<span>{{ news.createdAt }}</span></div>
+    </div>
+    <aaa-news-inline-form [news]="news"></aaa-news-inline-form>
+  </div>
+</div>

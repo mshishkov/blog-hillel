@@ -1,7 +1,8 @@
 import { News } from './../shared/models/news';
 import { Component, OnInit } from '@angular/core';
-import { NgSwitch } from '@angular/common';
 import { FetchNewsService } from './fetch-news.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'aaa-news',
@@ -9,22 +10,17 @@ import { FetchNewsService } from './fetch-news.service';
   styles: []
 })
 export class NewsComponent implements OnInit {
-  public newsList: News[] = [];
-  public viewMode: string;
+  public news: News;
 
-  constructor(private fetchNewsService: FetchNewsService) { }
+  constructor(
+    private newsService: FetchNewsService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private location: Location
+  ) { }
 
   ngOnInit() {
-    this.viewMode = 'rows';
-    this.getNews();
-  }
-
-  getNews(): void {
-    this.fetchNewsService.getNews()
-      .subscribe(news => this.newsList = news);
-  }
-
-  switchMode(mode: string) {
-    this.viewMode = mode;
+    console.log(this.route);
+    this.news = this.route.snapshot.data['news'];
   }
 }
