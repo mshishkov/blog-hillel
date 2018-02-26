@@ -20,7 +20,9 @@ export class NewsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.route);
+    // console.log(this.newsService.getNewsBySlug(
+    //   this.route.snapshot.params['slug'])
+    // );
     this.news = this.route.snapshot.data['news'];
   }
 }

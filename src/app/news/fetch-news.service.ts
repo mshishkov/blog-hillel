@@ -16,7 +16,7 @@ export class FetchNewsService {
   }
 
   getNewsBySlug(slug: string): News {
-    return _.find(NEWS, news => news.slug === news);
+    return _.find(NEWS, news => news.slug === slug);
   }
 
   remove(news: News) {
