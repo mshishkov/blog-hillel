@@ -19,8 +19,6 @@ import { NewsResolverService } from '../news/news-resolver.service';
 import { NewsComponent } from '../news/news.component';
 
 export const aaaRoutes: Routes = [
-  {path: 'news', component: NewsListComponent},
-  {path: 'news/:slug', component: NewsComponent, resolve: NewsResolverService },
   {path: '', pathMatch: 'full', redirectTo: '/news'}
 ];
 
