@@ -1,3 +1,4 @@
+import { NewsListComponent } from './news-helpers/news-list.component';
 import { News } from './../shared/models/news';
 import { Component, OnInit } from '@angular/core';
 import { FetchNewsService } from './fetch-news.service';
@@ -21,6 +22,11 @@ export class NewsComponent implements OnInit {
 
   ngOnInit(): void {
     this.news = this.newsService.getNewsBySlug(this.route.snapshot.params['slug']);
-    // this.news = this.route.snapshot.data['news'];
   }
+
+  backToList(event) {
+    event.preventDefault();
+    this.router.navigate(['/news'], { relativeTo: this.route });
+  }
+
 }

@@ -10,7 +10,8 @@ export const NEWS: News[] = [
       author: 'Jonathan Amos',
       active: true,
       createdAt: new Date('2018-02-07').toLocaleDateString(),
-      tags: ['science', 'environment']
+      tags: ['science', 'environment'],
+      html: `Test HTML `
     },
     {
       title: `HMS Ocean sails into Devonport base for the final time`,

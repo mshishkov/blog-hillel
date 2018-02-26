@@ -1,3 +1,13 @@
-<h2>{{ news.title }}</h2>
+<div class="news-container">
+  <h2>{{ news.title }}</h2>
+  <div class="single-news-wrapper">
+    <div class="date"></div>
+    <div class="created-by"></div>
+
+    <div class="description" innerHTML="{{ news.html }}"></div>
+
+  </div>
+  <a href="#" (click)="backToList($event)">Return to List</a>
+</div>
 
 
