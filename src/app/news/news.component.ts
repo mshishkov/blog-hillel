@@ -8,7 +8,8 @@ import { Location } from '@angular/common';
 @Component({
   selector: 'aaa-news',
   templateUrl: './news.component.html',
-  styles: []
+  styles: [],
+  providers: [FetchNewsService]
 })
 export class NewsComponent implements OnInit {
   public news: News;
@@ -16,8 +17,7 @@ export class NewsComponent implements OnInit {
   constructor(
     private newsService: FetchNewsService,
     private router: Router,
-    private route: ActivatedRoute,
-    private location: Location
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {

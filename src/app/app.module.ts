@@ -12,7 +12,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { NewsComponent } from './news/news.component';
 import { AuthorsModule } from './authors/authors.module';
-import { NewsResolverService } from './news/news-resolver.service';
+import { AuthorsComponent } from './authors/authors.component';
 
 @NgModule({
   declarations: [
