@@ -13,6 +13,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { NewsComponent } from './news/news.component';
 import { AuthorsModule } from './authors/authors.module';
 import { AuthorsComponent } from './authors/authors.component';
+import { AuthGuard } from './_guard/auth.guard';
+import { AuthorsEditorModule } from './authors-editor/authors-editor.module';
 
 @NgModule({
   declarations: [
@@ -26,10 +28,12 @@ import { AuthorsComponent } from './authors/authors.component';
     NewsEditorModule,
     FormsModule,
     AuthorsModule,
+    AuthorsEditorModule,
     RouterModule.forRoot([])
   ],
   providers: [
-    FetchNewsService
+    FetchNewsService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

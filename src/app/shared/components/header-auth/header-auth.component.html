@@ -10,7 +10,7 @@
         <br>
         <small>@{{ currentUser.occupation }}</small>
       </div>
-      <a href="#" class="user-logout" (click)="logout()">
+      <a href="#" class="user-logout">
         <i class="fas fa-sign-out-alt"></i>
       </a>
     </ng-container>
@@ -19,7 +19,7 @@
     <!-- shown for non-athorized -->
     <ng-container *ngIf="!currentUser">
       <div class="login-text">Authorization</div>
-      <a href="#" class="user-login" (click)="login()">
+      <a href="#" class="user-login">
         <i class="fas fa-sign-in-alt"></i>
       </a>  
     </ng-container>
@@ -39,7 +39,7 @@
           <i class="fas fa-plus-square"></i> Create news</a>
       </li>
       <li>
-        <a href="#" (click)="logout()">
+        <a href="#">
           <i class="fas fa-sign-out-alt"></i> Logout</a>
       </li>
     </ul>

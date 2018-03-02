@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
+import { ROLES } from '../../models/roles';
 
 @Component({
   selector: 'aaa-header-auth',
@@ -9,19 +10,9 @@ import { User } from '../../models/user';
 export class HeaderAuthComponent implements OnInit {
   public currentUser: User;
 
-  constructor() { }
+  constructor() {  }
 
   ngOnInit() {
-    this.currentUser = new User({
-      login: 'max',
-      firstName: 'Max',
-      lastName: 'Shishkov',
-      email: 'kupdiesel@gmail.com'
-    });
-
   }
 
-  logout() { }
-
-  login() { }
 }

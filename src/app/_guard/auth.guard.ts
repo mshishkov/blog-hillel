@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
+import { ROLES } from '../shared/models/roles';
+import { User } from '../shared/models/user';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -8,7 +10,8 @@ export class AuthGuard implements CanActivate {
 
     canActivate() {
       if (localStorage.getItem('currentUser')) {
-          return true;
+        const user = JSON.parse(localStorage.getItem('currentUser'));
+        return user.role === ROLES.admin;
       }
 
       // to be redirect to login ?
