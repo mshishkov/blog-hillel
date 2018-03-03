@@ -15,6 +15,7 @@ import { AuthorsModule } from './authors/authors.module';
 import { AuthorsComponent } from './authors/authors.component';
 import { AuthGuard } from './_guard/auth.guard';
 import { AuthorsEditorModule } from './authors-editor/authors-editor.module';
+import { ApiService } from './core/api.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AuthorsEditorModule } from './authors-editor/authors-editor.module';
   ],
   providers: [
     FetchNewsService,
-    AuthGuard
+    AuthGuard,
+    ApiService
   ],
   bootstrap: [AppComponent]
 })

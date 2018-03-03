@@ -1,4 +1,4 @@
-<div class="news-inline" *ngIf="news.active" [ngClass]="{'editing': news.editing}">
+<div class="news-inline" [ngClass]="{'editing': news.editing}">
   <aaa-image-holder [link]="news.previewImage" [alt]="news.title" *ngIf="!news.editing"></aaa-image-holder>
   <div class="texts">
     <div *ngIf="!news.editing">

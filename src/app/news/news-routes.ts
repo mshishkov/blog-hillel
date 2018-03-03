@@ -5,5 +5,5 @@ import { Routes } from '@angular/router';
 
 export const NewsRoutes: Routes = [
   {path: 'news', component: NewsListComponent},
-  {path: 'news/:slug', component: NewsComponent, resolve: NewsResolverService },
+  {path: 'news/:slug', component: NewsComponent, resolve: { news: NewsResolverService }},
 ];

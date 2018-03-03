@@ -1,9 +1,10 @@
 import { News } from './../../shared/models/news';
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { EventEmitter } from 'events';
-import { NgSwitch, Location } from '@angular/common';
+import { NgSwitch } from '@angular/common';
 import { FetchNewsService } from '../fetch-news.service';
 import { Router, ActivatedRoute  } from '@angular/router';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'aaa-news-list',
@@ -17,8 +18,7 @@ export class NewsListComponent implements OnInit {
   constructor(
     private fetchNewsService: FetchNewsService,
     private route: Router,
-    private avtivatedRoute: ActivatedRoute,
-    private location: Location
+    private avtivatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -28,7 +28,8 @@ export class NewsListComponent implements OnInit {
 
   getNews(): void {
     this.fetchNewsService
-    .getNews().subscribe(news => this.newsList = news);
+    .getNews()
+    .subscribe( data => this.newsList = data.articles);
   }
 
   switchMode(event: Event, mode: string) {

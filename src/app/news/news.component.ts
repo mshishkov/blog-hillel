@@ -21,7 +21,10 @@ export class NewsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.news = this.newsService.getNewsBySlug(this.route.snapshot.params['slug']);
+    this.route.data
+      .subscribe((data: {news: News}) => {
+         this.news = data.news;
+      });
   }
 
   backToList(event) {

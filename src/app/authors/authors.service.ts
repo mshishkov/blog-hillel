@@ -1,5 +1,4 @@
 import { Author } from './../shared/models/author';
-import { AUTHORS } from './authors-mock';
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
 
@@ -9,7 +8,7 @@ export class AuthorsService {
   constructor() { }
 
   public getAuthorByLogin(login: string): Author {
-    return _.find(AUTHORS, author => author.login === login);
+    return _.find([], author => author.login === login);
   }
 
 }

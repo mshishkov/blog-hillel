@@ -8,7 +8,7 @@ export class News {
   views?: number;
   previewImage?: string;
   description?: string;
-  html?: string;
+  body?: string;
   author?: Author;
   active?: boolean;
   editing?: boolean;

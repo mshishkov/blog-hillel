@@ -4,7 +4,7 @@
     <div class="date"></div>
     <div class="created-by"></div>
 
-    <div class="description" innerHTML="{{ news.html }}"></div>
+    <div class="description" [innerHtml]="news.body"></div>
 
   </div>
   <a href="#" (click)="backToList($event)">Return to List</a>
