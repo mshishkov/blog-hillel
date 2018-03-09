@@ -666,7 +666,7 @@ a.btn.active:hover{
     background: #097b17;
 }
 .pull-right{
-    float: right; 
+    float: right;
 }
 .btn-group{
     padding: 7px;
@@ -713,7 +713,7 @@ a.btn.active:hover{
 .news-pines .news-title{
     height: 50px;
     line-height: 25px;
-    display: block;  
+    display: block;
     font-size: 24px;
     font-weight: bold;
     color: #6f6f6f;
@@ -739,3 +739,7 @@ a.btn.active:hover{
     height: 275px;
     margin-top: 75px;
 }
+.inline{
+  display: inline-block;
+}
+

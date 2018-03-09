@@ -1,3 +1,5 @@
+import { PreloaderService } from './shared/preloader.service';
+import { ApiFilterService } from './core/api.filter.service';
 import { FetchNewsService } from './news/fetch-news.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -35,7 +37,9 @@ import { ApiService } from './core/api.service';
   providers: [
     FetchNewsService,
     AuthGuard,
-    ApiService
+    ApiService,
+    ApiFilterService,
+    PreloaderService
   ],
   bootstrap: [AppComponent]
 })

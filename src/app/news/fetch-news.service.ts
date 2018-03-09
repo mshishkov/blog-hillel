@@ -8,18 +8,22 @@ import { Response } from '@angular/http';
 
 // Mock of NEWS
 import { ApiService } from '../core/api.service';
+import { ApiFilterService } from '../core/api.filter.service';
 
 @Injectable()
 export class FetchNewsService {
 
-  constructor(private api: ApiService) { }
+  constructor(
+    private api: ApiService,
+    private apiFiltersService: ApiFilterService
+  ) { }
 
-  getNews(): Observable<{articles: News[]}> {
-    return this.api.get('http://conduit.productionready.io/api/articles', News);
+  getNews(filters = ''): Observable<{articles: News[]}> {
+    return this.api.get('articles?' + this.apiFiltersService.getFilters(), News);
   }
 
   getNewsBySlug(slug: string): Observable<News> {
-    return this.api.get(`http://conduit.productionready.io/api/articles/${slug}`, News)
+    return this.api.get(`articles/${slug}`, News)
     .pipe(
       map((data: { article: News}) => data.article)
     );
@@ -30,7 +34,6 @@ export class FetchNewsService {
     if (!confirmed) {
       return;
     }
-    // news.active = false;
   }
 
 }

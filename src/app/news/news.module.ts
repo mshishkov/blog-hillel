@@ -11,6 +11,7 @@ import { NewsRoutes } from './news-routes';
 import { HttpModule } from '@angular/http';
 import { NewsResolverService } from './news-resolver.service';
 import { FetchNewsService } from './fetch-news.service';
+import { NewsFilterComponent } from './news-helpers/news-filter.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,7 @@ import { FetchNewsService } from './fetch-news.service';
     RouterModule.forChild( NewsRoutes )
   ],
   providers: [ NewsResolverService, FetchNewsService ],
-  declarations: [NewsComponent, NewsListComponent, NewsPreviewComponent, NewsListPinesComponent],
-  exports: [NewsComponent, NewsListComponent, NewsPreviewComponent, NewsListPinesComponent]
+  declarations: [NewsComponent, NewsListComponent, NewsPreviewComponent, NewsListPinesComponent, NewsFilterComponent],
+  exports: [NewsComponent, NewsListComponent, NewsPreviewComponent, NewsListPinesComponent, NewsFilterComponent]
 })
 export class NewsModule { }

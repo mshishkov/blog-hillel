@@ -29,4 +29,8 @@ export class News {
       this.slug = new SlugGenerator().generate(this.title);
     }
   }
+
+  getUrl() {
+    return `/news/${this.slug}`;
+  }
 }

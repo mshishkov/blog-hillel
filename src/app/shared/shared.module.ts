@@ -17,6 +17,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NewsListComponent } from '../news/news-helpers/news-list.component';
 import { NewsResolverService } from '../news/news-resolver.service';
 import { NewsComponent } from '../news/news.component';
+import { PreloaderComponent } from './components/preloader/preloader.component';
 
 export const aaaRoutes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: '/news'}
@@ -39,7 +40,8 @@ export const aaaRoutes: Routes = [
     HeaderLogoComponent,
     HeaderAuthComponent,
     EditInlineDirective,
-    MarkupHtmlDirective
+    MarkupHtmlDirective,
+    PreloaderComponent
   ],
   exports: [
     SharedComponent,
@@ -53,7 +55,8 @@ export const aaaRoutes: Routes = [
     HeaderAuthComponent,
     EditInlineDirective,
     MarkupHtmlDirective,
-    RouterModule
+    RouterModule,
+    PreloaderComponent
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,12 @@
+<div class="inline">
+    <div class="quick">
+        <a href="#" (click)="changeSort(1)" [ngClass]="{'active': sort == 1}">Latest</a> |
+        <a href="#" (click)="changeSort(0)" [ngClass]="{'active': sort == 0}">Most Popular</a> |
+        <span class="pages-per-page-holder">Per Page:
+            <select name="per-page" id="pages-per-page" (change)="changePerPage($event)">
+                <option *ngFor="let num of sortingNumbers" value="{{num}}" [selected]="num == perPage" >{{num}}</option>
+            </select>
+        </span>
+    </div>
+
+</div>

@@ -1,6 +1,7 @@
 <div class="news-list" *ngIf="newsList.length">
   <h1>News From All Over The World!</h1>
   <div class="btn-group">
+    <aaa-news-filter (sorting)="sorting($event)" (paging)="paging($event)" [perPage]="perPage" [sort]="sort"></aaa-news-filter>
     <a href="#" [ngClass]="{'active': viewMode === 'rows', 'btn view-selector': true}" (click)="switchMode($event, 'rows')">
       <i class="fas fa-th-list"></i>
     </a>
@@ -8,6 +9,8 @@
       <i class="fas fa-th-large"></i>
     </a>
   </div>
+
+  <!-- news list with view mode -->
   <div [ngSwitch]="viewMode">
     <div class="piles-view" *ngSwitchCase="'piles'">
       <aaa-news-list-pines *ngFor="let news of newsList" [news]="news"></aaa-news-list-pines>
@@ -16,4 +19,14 @@
       <aaa-news-preview *ngFor="let news of newsList" [news]="news"></aaa-news-preview>
     </div>
   </div>
+
+  <aaa-pagination
+    [pagesTotal]="pagesTotal"
+    [currentPage]="currentPage"
+    [perPage]="perPage"
+    [forModel]="this.paginationModel"
+    [visiblePages]="3"
+    (changePage)="changePage($event, page)"
+  ></aaa-pagination>
+
 </div>
