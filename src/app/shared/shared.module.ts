@@ -18,6 +18,7 @@ import { NewsListComponent } from '../news/news-helpers/news-list.component';
 import { NewsResolverService } from '../news/news-resolver.service';
 import { NewsComponent } from '../news/news.component';
 import { PreloaderComponent } from './components/preloader/preloader.component';
+import { TagsModule } from '../tags/tags.module';
 
 export const aaaRoutes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: '/news'}
@@ -27,7 +28,8 @@ export const aaaRoutes: Routes = [
   imports: [
     CommonModule,
     PopupsModule,
-    RouterModule.forChild(aaaRoutes)
+    RouterModule.forChild(aaaRoutes),
+    TagsModule
   ],
   declarations: [
     SharedComponent,

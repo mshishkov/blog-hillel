@@ -19,6 +19,7 @@ import { AuthGuard } from './_guard/auth.guard';
 import { AuthorsEditorModule } from './authors-editor/authors-editor.module';
 import { ApiService } from './core/api.service';
 import { TagsModule } from './tags/tags.module';
+import { TagsFetchService } from './tags/tags-fetch.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { TagsModule } from './tags/tags.module';
     AuthGuard,
     ApiService,
     ApiFilterService,
-    PreloaderService
+    PreloaderService,
+    TagsFetchService
   ],
   bootstrap: [AppComponent]
 })

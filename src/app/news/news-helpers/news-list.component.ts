@@ -17,7 +17,7 @@ export class NewsListComponent implements OnInit {
   public viewMode: string;
   public perPage = 10;
   public sort = 1;
-  public pagesTotal = 100;
+  public pagesTotal = 100; 
   public currentPage: Number = 1;
   public paginationModel: News = new News;
 
@@ -45,21 +45,11 @@ export class NewsListComponent implements OnInit {
   }
 
   doSort(event) {
-    // this.pagesTotal = Math.ceil(this.newsListFull.length / +this.perPage);
 
-    // this.newsListFull.sort((news1, news2) =>
-    //   (this.sort === 0 ?
-    //       news1.views < news2.views :
-    //       new Date(news1.createdAt).getTime() < new Date(news2.createdAt).getTime()
-    //   ) ? 1 : 0);
-
-    //   this.afterFiltering();
   }
 
   sorting(sortVal: Number, event) {
-    // this.sort = sortVal;
-    // this.currentPage = 1;
-    // this.doSort(event);
+
   }
 
   paging(event) {
