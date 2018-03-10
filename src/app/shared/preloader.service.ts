@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class PreloaderService {
-  private hidden: boolean;
+  public hidden: boolean;
 
   constructor() {
     this.hidden = true;
+  }
+
+  getState() {
+    return this.hidden;
   }
 
   show() {

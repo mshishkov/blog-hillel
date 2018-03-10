@@ -6,7 +6,6 @@ import { News } from '../shared/models/news';
 import * as _ from 'lodash';
 import { Response } from '@angular/http';
 
-// Mock of NEWS
 import { ApiService } from '../core/api.service';
 import { ApiFilterService } from '../core/api.filter.service';
 

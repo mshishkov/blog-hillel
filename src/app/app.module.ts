@@ -18,6 +18,7 @@ import { AuthorsComponent } from './authors/authors.component';
 import { AuthGuard } from './_guard/auth.guard';
 import { AuthorsEditorModule } from './authors-editor/authors-editor.module';
 import { ApiService } from './core/api.service';
+import { TagsModule } from './tags/tags.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ApiService } from './core/api.service';
     FormsModule,
     AuthorsModule,
     AuthorsEditorModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot([]),
+    TagsModule
   ],
   providers: [
     FetchNewsService,
