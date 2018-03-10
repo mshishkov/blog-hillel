@@ -1,3 +1,3 @@
-<div id="preloader" *ngIf="state">
+<div id="preloader" [hidden]="preloaderState | async">
   <div class="spinner"></div>
 </div>

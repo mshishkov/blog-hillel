@@ -6,6 +6,7 @@ import { NgSwitch } from '@angular/common';
 import { FetchNewsService } from '../fetch-news.service';
 import { Router, ActivatedRoute  } from '@angular/router';
 import { finalize } from 'rxjs/operators';
+import { PreloaderService } from '../../shared/preloader.service';
 
 @Component({
   selector: 'aaa-news-list',
@@ -17,7 +18,7 @@ export class NewsListComponent implements OnInit {
   public viewMode: string;
   public perPage = 10;
   public sort = 1;
-  public pagesTotal = 100; 
+  public pagesTotal = 100;
   public currentPage: Number = 1;
   public paginationModel: News = new News;
 
@@ -25,7 +26,8 @@ export class NewsListComponent implements OnInit {
     private fetchNewsService: FetchNewsService,
     private route: Router,
     private avtivatedRoute: ActivatedRoute,
-    private apiFiltersService: ApiFilterService
+    private apiFiltersService: ApiFilterService,
+    private preloaderService: PreloaderService
   ) { }
 
   ngOnInit() {
@@ -34,8 +36,12 @@ export class NewsListComponent implements OnInit {
   }
 
   getNews(): void {
+    this.preloaderService.show();
     this.fetchNewsService
     .getNews()
+    .pipe(
+      finalize(() => this.preloaderService.hide())
+    )
     .subscribe( data => this.newsList = data.articles);
   }
 

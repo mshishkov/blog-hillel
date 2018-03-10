@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PreloaderService } from '../../preloader.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'aaa-preloader',
@@ -7,17 +8,13 @@ import { PreloaderService } from '../../preloader.service';
   styles: []
 })
 export class PreloaderComponent implements OnInit {
-  public state;
 
   constructor(private service: PreloaderService) { }
 
-  ngOnInit() {
-    this.getState();
-  }
+  ngOnInit() { }
 
-  getState(): void {
-    this.state = this.service
-    .getState();
+  get preloaderState(): Observable<boolean> {
+    return this.service.state;
   }
 
 }

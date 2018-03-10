@@ -23,16 +23,28 @@ export class ApiService {
       options.headers = this.headers;
     }
 
-    (new PreloaderService()).show();
     return this.http.get(url, options)
       .pipe(
-        finalize( () => (new PreloaderService()).hide() )
-      ).pipe(
         map((res: Response) => {
           return <typeof typeModel>res.json();
         })
       );
   }
 
+  post(url: string, data: any, options?: any) {
+    options = options || {};
+    url = this.baseUrl + url;
+
+    if ( !options.hasOwnProperty('headers') ) {
+      options.headers = this.headers;
+    }
+
+    return this.http.post(url, options)
+      .pipe(
+        map((res: Response) => {
+          return res.json();
+        })
+      );
+  }
 
 }

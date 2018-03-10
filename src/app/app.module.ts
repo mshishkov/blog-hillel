@@ -20,6 +20,8 @@ import { AuthorsEditorModule } from './authors-editor/authors-editor.module';
 import { ApiService } from './core/api.service';
 import { TagsModule } from './tags/tags.module';
 import { TagsFetchService } from './tags/tags-fetch.service';
+import { AuthModule } from './auth/auth.module';
+import { UserService } from './core/user.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { TagsFetchService } from './tags/tags-fetch.service';
     AuthorsModule,
     AuthorsEditorModule,
     RouterModule.forRoot([]),
-    TagsModule
+    TagsModule,
+    AuthModule
   ],
   providers: [
     FetchNewsService,
@@ -43,7 +46,8 @@ import { TagsFetchService } from './tags/tags-fetch.service';
     ApiService,
     ApiFilterService,
     PreloaderService,
-    TagsFetchService
+    TagsFetchService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
