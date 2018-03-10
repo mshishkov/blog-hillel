@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { UserService } from '../../core/user.service';
 
 
@@ -11,10 +11,13 @@ import { UserService } from '../../core/user.service';
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
 
-  constructor(private userServie: UserService) {
-    this.loginForm = new FormGroup({
-      'login': new FormControl('', Validators.compose([Validators.maxLength(30)])),
-      'password': new FormControl('', Validators.required)
+  constructor(
+    private userService: UserService,
+    private formBuilder: FormBuilder
+  ) {
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
     });
    }
 
@@ -23,7 +26,9 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.userServie.login( this.loginForm.value );
+    this.userService
+    .login( this.loginForm.value )
+    .subscribe( data => console.log(data) );
   }
 
 }

@@ -7,6 +7,6 @@ export class UserService {
   constructor(private api: ApiService) { }
 
   login(data) {
-    this.api.post('users', data);
+    return this.api.post('users/login', data);
   }
 }
