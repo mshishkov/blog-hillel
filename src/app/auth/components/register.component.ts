@@ -3,7 +3,6 @@ import { UserService } from '../../core/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PasswordRepeatValidator } from '../../shared/directives/password-repeat-validator';
 
-
 @Component({
   selector: 'aaa-register',
   templateUrl: './register.component.html',
@@ -17,7 +16,7 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.regForm = this.formBuilder.group({
-      username: ['', Validators.compose([Validators.maxLength(30)])],
+      username: ['', Validators.compose([Validators.maxLength(30), Validators.minLength(6)])],
       email: ['', Validators.required],
       password: ['', Validators.required],
       confirmPassword: ['', Validators.compose([

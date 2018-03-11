@@ -23,6 +23,7 @@ import { AuthModule } from '../auth/auth.module';
 import { TagsListComponent } from '../tags/tags-list.component';
 import { TagsModule } from '../tags/tags.module';
 import { PasswordRepeatValidator } from './directives/password-repeat-validator';
+import { NotificationComponent } from './components/notification/notification.component';
 
 
 export const aaaRoutes: Routes = [
@@ -50,7 +51,8 @@ export const aaaRoutes: Routes = [
     HeaderAuthComponent,
     EditInlineDirective,
     MarkupHtmlDirective,
-    PreloaderComponent
+    PreloaderComponent,
+    NotificationComponent
   ],
   exports: [
     SharedComponent,
@@ -67,7 +69,8 @@ export const aaaRoutes: Routes = [
     RouterModule,
     PreloaderComponent,
     ReactiveFormsModule,
-    AuthModule
+    AuthModule,
+    NotificationComponent
   ]
 })
 export class SharedModule { }
