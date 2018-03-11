@@ -9,17 +9,17 @@ import { TagsFetchService } from './tags-fetch.service';
   styles: []
 })
 export class TagsListComponent implements OnInit {
-  public tagList: Tag[];
+  public tagList: Tag[] = [];
 
-  constructor( private tagsService: TagsFetchService ) {  }
+  constructor(private tagsFetchService: TagsFetchService ) {  }
 
   ngOnInit() {
     this.getTags();
   }
 
   getTags(): void {
-    this.tagsService
+    this.tagsFetchService
     .getTags()
-    .subscribe( data => this.tagList = data.tags);
+    .subscribe( data => this.tagList = data.tags );
   }
 }

@@ -1,7 +1,9 @@
 export class Tag {
     public name: string;
 
-    constructor(name = '') {
-        this.name = name;
+    constructor(params = {}) {
+        for (const [key, value] of Object.entries(params)) {
+            this[key] = value;
+        }
     }
 }

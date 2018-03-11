@@ -6,7 +6,11 @@ export class UserService {
 
   constructor(private api: ApiService) { }
 
-  login(data) {
+  create(data) {
     return this.api.post('users/login', data);
+  }
+
+  register(data) {
+    return this.api.post('users', data);
   }
 }

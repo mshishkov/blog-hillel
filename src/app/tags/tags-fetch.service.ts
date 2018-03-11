@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class TagsFetchService {
-  
+
   constructor( private api: ApiService) { }
 
   getTags(): Observable<{tags: Tag[]}> {

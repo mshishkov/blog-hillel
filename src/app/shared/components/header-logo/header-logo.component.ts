@@ -14,7 +14,8 @@ export class HeaderLogoComponent implements OnInit {
   ngOnInit() {
   }
 
-  toggleMenu() {
+  toggleMenu(event) {
+    event.preventDefault();
     if (!document.body.classList.contains('menu-opened')) {
       document.body.classList.add('menu-opened');
     } else {

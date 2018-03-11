@@ -6,6 +6,7 @@ import { TagsListComponent } from './tags-list.component';
   imports: [
     CommonModule
   ],
-  declarations: [TagsListComponent]
+  declarations: [TagsListComponent],
+  exports: [TagsListComponent]
 })
 export class TagsModule { }

@@ -18,9 +18,11 @@ import { NewsListComponent } from '../news/news-helpers/news-list.component';
 import { NewsResolverService } from '../news/news-resolver.service';
 import { NewsComponent } from '../news/news.component';
 import { PreloaderComponent } from './components/preloader/preloader.component';
-import { TagsModule } from '../tags/tags.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthModule } from '../auth/auth.module';
+import { TagsListComponent } from '../tags/tags-list.component';
+import { TagsModule } from '../tags/tags.module';
+import { PasswordRepeatValidator } from './directives/password-repeat-validator';
 
 
 export const aaaRoutes: Routes = [
@@ -32,9 +34,9 @@ export const aaaRoutes: Routes = [
     CommonModule,
     PopupsModule,
     RouterModule.forChild(aaaRoutes),
-    TagsModule,
     ReactiveFormsModule,
-    AuthModule
+    AuthModule,
+    TagsModule
   ],
   declarations: [
     SharedComponent,
@@ -64,7 +66,6 @@ export const aaaRoutes: Routes = [
     MarkupHtmlDirective,
     RouterModule,
     PreloaderComponent,
-    TagsModule,
     ReactiveFormsModule,
     AuthModule
   ]
