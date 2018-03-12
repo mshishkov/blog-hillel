@@ -2,8 +2,10 @@ import { PreloaderService } from './../shared/preloader.service';
 import { Injectable } from '@angular/core';
 
 import { Http, Response, Headers } from '@angular/http';
-import { finalize, map } from 'rxjs/operators';
-import { logging } from 'selenium-webdriver';
+import { finalize, map, catchError } from 'rxjs/operators';
+import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
+import { Notify } from '../shared/models/notify';
+import { NotificationService } from './notification.service';
 
 @Injectable()
 export class ApiService {
@@ -13,7 +15,10 @@ export class ApiService {
     'Content-Type': 'application/json',
   });
 
-  constructor( private http: Http ) { }
+  constructor(
+    private http: Http,
+    private notificationService: NotificationService
+  ) { }
 
   get(url: string, typeModel: any, options?: any) {
     options = options || {};
@@ -23,7 +28,11 @@ export class ApiService {
       options.headers = this.headers;
     }
 
-    return this.http.get(url, options)
+    return this.http
+      .get(url, options)
+      .pipe(
+        catchError(this.handleHttpError)
+      )
       .pipe(
         map((res: Response) => {
           return <typeof typeModel>res.json();
@@ -39,12 +48,31 @@ export class ApiService {
       options.headers = this.headers;
     }
 
-    return this.http.post(url, options)
+    return this.http
+      .post(url, options)
       .pipe(
         map((res: Response) => {
+          console.log(res.json());
           return res.json();
         })
+      )
+      .pipe(
+        catchError(this.handleHttpError)
       );
+  }
+
+  private handleHttpError(error: any) {
+    const errorBody = JSON.parse(error._body);
+
+    for (const k in errorBody.errors) {
+      if (errorBody.errors[k]) {
+        const notice = new Notify(k + ': ' + errorBody.errors[k], 'danger');
+        console.log(this.notificationService);
+        // this.notificationService.pushMessage(notice);
+      }
+    }
+
+    return ErrorObservable.create(error);
   }
 
 }

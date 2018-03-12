@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Notify } from '../shared/models/notify';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable()
 export class NotificationService {
@@ -16,8 +17,9 @@ export class NotificationService {
       .asObservable();
   }
 
-  pushMessage(message: Notify): void {
+  pushMessage(message: any): void {
     this.messages.push(message);
+    console.log(message);
     this.messages$.next([...this.messages]);
   }
 

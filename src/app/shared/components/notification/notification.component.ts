@@ -9,7 +9,7 @@ import { NotificationService } from '../../../core/notification.service';
   styleUrls: ['./notification.component.css']
 })
 export class NotificationComponent implements OnInit {
- 
+
   constructor(private notificationService: NotificationService) { }
 
   ngOnInit() {
