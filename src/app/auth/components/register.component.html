@@ -1,19 +1,19 @@
 <form action="" [formGroup]="regForm" (ngSubmit)="onSubmit()" class="auth-form">
     <div class="row">
         <label for="username">Login: </label>
-        <input type="text" name="login" formControlName="username">
+        <input type="text" name="login" formControlName="username" [formGroup]="regForm">
     </div>
     <div class="row">
         <label for="email">Email: </label>
-        <input type="text" name="email" formControlName="email">
+        <input type="text" name="email" formControlName="email" [formGroup]="regForm">
     </div>
     <div class="row">
         <label for="password">Password: </label>
-        <input type="password" name="password" formControlName="password">
+        <input type="password" name="password" formControlName="password" [formGroup]="regForm">
     </div>
     <div class="row">
         <label for="confirmPassword">Password Repeat: </label>
-        <input type="password" name="confirmPassword" formControlName="confirmPassword">
+        <input type="password" name="confirmPassword" formControlName="confirmPassword" [formGroup]="regForm">
     </div>
     <button type="submit" [disabled]="!regForm.value">Sign up!</button>
 </form>

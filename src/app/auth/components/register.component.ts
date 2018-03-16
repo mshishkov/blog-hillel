@@ -16,13 +16,10 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.regForm = this.formBuilder.group({
-      username: ['', Validators.compose([Validators.maxLength(30), Validators.minLength(6)])],
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.compose([
-        Validators.required,
-        PasswordRepeatValidator()
-      ])],
+      username: ['', Validators.compose([Validators.required, Validators.maxLength(30), Validators.minLength(6)])],
+      email: ['', Validators.compose([Validators.required, Validators.email])],
+      password: ['', Validators.compose([Validators.required, Validators.maxLength(30), Validators.minLength(6)])],
+      confirmPassword: ['', Validators.compose([ Validators.required, PasswordRepeatValidator() ])],
     });
   }
 
@@ -30,9 +27,13 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    this.userService
-      .create(this.regForm.value)
-      .subscribe(data => console.log(data));
+    console.log(this.regForm.dirty, this.regForm.valid);
+
+    if (this.regForm.dirty && this.regForm.valid) {
+      this.userService
+        .create(this.regForm.value)
+        .subscribe(data => console.log(data));
+    }
   }
 
 }
