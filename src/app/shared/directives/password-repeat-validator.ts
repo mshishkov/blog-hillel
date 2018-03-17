@@ -1,6 +1,6 @@
-import { ValidatorFn, AbstractControl, Validators, ValidationErrors } from '@angular/forms';
+import { ValidatorFn, AbstractControl, Validators } from '@angular/forms';
 
-export function PasswordRepeatValidator(compareParam = null): ValidationErrors | null {
+export function PasswordRepeatValidator(compareParam = null): ValidatorFn {
   return (control: AbstractControl): {[key: string]: any} => {
     if (typeof control.parent !== typeof undefined && control.touched) {
       const password = control.parent.get('password').value;

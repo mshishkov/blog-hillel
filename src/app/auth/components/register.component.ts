@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../core/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PasswordRepeatValidator } from '../../shared/directives/password-repeat-validator';
+import { Router } from '@angular/router';
+import { AuthService } from '../../_guard/auth.service';
 
 @Component({
   selector: 'aaa-register',
@@ -13,7 +15,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {
     this.regForm = this.formBuilder.group({
       username: ['', Validators.compose([Validators.required, Validators.maxLength(30), Validators.minLength(6)])],
@@ -32,7 +35,10 @@ export class RegisterComponent implements OnInit {
     if (this.regForm.dirty && this.regForm.valid) {
       this.userService
         .create(this.regForm.value)
-        .subscribe(data => console.log(data));
+        .subscribe(data => {
+          this.userService.store(data.json());
+          this.router.navigateByUrl('/news');
+        });
     }
   }
 

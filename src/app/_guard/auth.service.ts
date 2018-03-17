@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AuthService {
@@ -24,6 +25,10 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem('currentUser');
     this.token = null;
+  }
+
+  store(user): void {
+    return localStorage.setItem('currentUser', JSON.stringify({ username: user.username, token: user.token }));
   }
 
 }

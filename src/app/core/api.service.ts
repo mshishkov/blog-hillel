@@ -49,7 +49,7 @@ export class ApiService {
     }
 
     return this.http
-      .post(url, options)
+      .post(url, data, options)
       .pipe(
         map((res: Response) => {
           console.log(res.json());
