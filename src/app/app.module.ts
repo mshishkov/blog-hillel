@@ -23,6 +23,7 @@ import { TagsFetchService } from './tags/tags-fetch.service';
 import { AuthModule } from './auth/auth.module';
 import { UserService } from './core/user.service';
 import { NotificationService } from './core/notification.service';
+import { AuthService } from './_guard/auth.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { NotificationService } from './core/notification.service';
     PreloaderService,
     TagsFetchService,
     UserService,
-    NotificationService
+    NotificationService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

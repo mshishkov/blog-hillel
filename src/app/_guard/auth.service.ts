@@ -27,8 +27,8 @@ export class AuthService {
     this.token = null;
   }
 
-  store(user): void {
-    return localStorage.setItem('currentUser', JSON.stringify({ username: user.username, token: user.token }));
+  store(user) {
+    localStorage.setItem('token', user.token );
   }
 
 }

@@ -16,6 +16,6 @@
         <span [hidden]="!regForm.hasError.MismatchPassword">Password confirmation incorrect</span>
         <input type="password" name="confirmPassword" formControlName="confirmPassword" [formGroup]="regForm">
     </div>
-    <button type="submit" [disabled]="!regForm.value">Sign up!</button>
+    <button type="submit" [disabled]="!regForm.valid">Sign up!</button>
 </form>
 

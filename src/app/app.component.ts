@@ -9,17 +9,8 @@ import { ROLES } from './shared/models/roles';
 })
 export class AppComponent implements OnInit {
   appName = 'World News';
-  public currentUser: User;
 
   ngOnInit() {
-    this.currentUser = new User({
-      login: 'max',
-      firstName: 'Max',
-      lastName: 'Shishkov',
-      email: 'kupdiesel@gmail.com',
-      role: ROLES.admin
-    });
-    localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
   }
 
 }

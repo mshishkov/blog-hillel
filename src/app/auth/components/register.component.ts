@@ -30,13 +30,11 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.regForm.dirty, this.regForm.valid);
-
     if (this.regForm.dirty && this.regForm.valid) {
       this.userService
         .create(this.regForm.value)
         .subscribe(data => {
-          this.userService.store(data.json());
+          this.userService.store(data);
           this.router.navigateByUrl('/news');
         });
     }
