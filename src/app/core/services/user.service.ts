@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
-import { AuthService } from '../_guard/auth.service';
+import { AuthService } from '../../_guard/auth.service';
 
 @Injectable()
 export class UserService {

@@ -1,6 +1,6 @@
-import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpHandler, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PreloaderService } from './shared/preloader.service';
-import { ApiFilterService } from './core/api.filter.service';
+import { ApiFilterService } from './core/services/api.filter.service';
 import { FetchNewsService } from './news/fetch-news.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -18,13 +18,16 @@ import { AuthorsModule } from './authors/authors.module';
 import { AuthorsComponent } from './authors/authors.component';
 import { AuthGuard } from './_guard/auth.guard';
 import { AuthorsEditorModule } from './authors-editor/authors-editor.module';
-import { ApiService } from './core/api.service';
+import { ApiService } from './core/services/api.service';
 import { TagsModule } from './tags/tags.module';
 import { TagsFetchService } from './tags/tags-fetch.service';
 import { AuthModule } from './auth/auth.module';
-import { UserService } from './core/user.service';
-import { NotificationService } from './core/notification.service';
+import { UserService } from './core/services/user.service';
+import { NotificationService } from './core/services/notification.service';
 import { AuthService } from './_guard/auth.service';
+import { tokenInterceptor } from './core/interceptors/tokenInterceptor';
+
+
 
 @NgModule({
   declarations: [
@@ -53,7 +56,12 @@ import { AuthService } from './_guard/auth.service';
     TagsFetchService,
     UserService,
     NotificationService,
-    AuthService
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: tokenInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

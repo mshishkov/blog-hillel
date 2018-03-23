@@ -1,6 +1,6 @@
 import { EventEmitter } from '@angular/core';
 import { Component, OnInit, Output, Input } from '@angular/core';
-import { ApiFilterService } from '../../core/api.filter.service';
+import { ApiFilterService } from '../../core/services/api.filter.service';
 
 @Component({
   selector: 'aaa-news-filter',

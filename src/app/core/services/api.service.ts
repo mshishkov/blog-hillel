@@ -1,10 +1,10 @@
-import { PreloaderService } from './../shared/preloader.service';
+import { PreloaderService } from '../../shared/preloader.service';
 import { Injectable } from '@angular/core';
 
 import { Response, Headers } from '@angular/http';
 import { finalize, map, catchError } from 'rxjs/operators';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
-import { Notify } from '../shared/models/notify';
+import { Notify } from '../../shared/models/notify';
 import { NotificationService } from './notification.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { HttpClient, HttpErrorResponse, HttpParams, HttpResponse } from '@angular/common/http';

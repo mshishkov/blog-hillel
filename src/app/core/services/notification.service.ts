@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Notify } from '../shared/models/notify';
+import { Notify } from '../../shared/models/notify';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable()

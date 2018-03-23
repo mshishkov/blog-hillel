@@ -1,4 +1,4 @@
-import { ApiFilterService } from './../../core/api.filter.service';
+import { ApiFilterService } from './../../core/services/api.filter.service';
 import { News } from './../../shared/models/news';
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';

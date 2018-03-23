@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Notify } from '../../models/notify';
 import { Observable } from 'rxjs/Observable';
-import { NotificationService } from '../../../core/notification.service';
+import { NotificationService } from '../../../core/services/notification.service';
 
 @Component({
   selector: 'aaa-notification',

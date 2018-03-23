@@ -6,8 +6,8 @@ import { News } from '../shared/models/news';
 import * as _ from 'lodash';
 import { Response } from '@angular/http';
 
-import { ApiService } from '../core/api.service';
-import { ApiFilterService } from '../core/api.filter.service';
+import { ApiService } from '../core/services/api.service';
+import { ApiFilterService } from '../core/services/api.filter.service';
 
 @Injectable()
 export class FetchNewsService {

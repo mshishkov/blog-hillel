@@ -1,4 +1,4 @@
-import { ApiFilterService } from './../core/api.filter.service';
+import { ApiFilterService } from './../core/services/api.filter.service';
 import { map } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';

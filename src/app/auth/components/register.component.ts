@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../core/user.service';
+import { UserService } from '../../core/services/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PasswordRepeatValidator } from '../../shared/directives/password-repeat-validator';
 import { Router } from '@angular/router';
