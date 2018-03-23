@@ -25,8 +25,7 @@ import { AuthModule } from './auth/auth.module';
 import { UserService } from './core/services/user.service';
 import { NotificationService } from './core/services/notification.service';
 import { AuthService } from './_guard/auth.service';
-import { tokenInterceptor } from './core/interceptors/tokenInterceptor';
-
+import { TokenInterceptor } from './core/interceptors/TokenInterceptor';
 
 
 @NgModule({
@@ -59,7 +58,7 @@ import { tokenInterceptor } from './core/interceptors/tokenInterceptor';
     AuthService,
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: tokenInterceptor,
+      useClass: TokenInterceptor,
       multi: true
     }
   ],

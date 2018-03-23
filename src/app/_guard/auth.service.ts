@@ -6,8 +6,7 @@ export class AuthService {
   public token: string;
 
   constructor() {
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.token = currentUser && currentUser.token;
+    this.token = localStorage.getItem('token');
   }
 
   login(username: string, password: string) {
@@ -15,7 +14,7 @@ export class AuthService {
     // to be HTTP
     if (token) {
         this.token = token;
-        localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token }));
+        localStorage.setItem('token', token );
         return true;
     } else {
         return false;
@@ -23,7 +22,7 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('currentUser');
+    localStorage.removeItem('token');
     this.token = null;
   }
 

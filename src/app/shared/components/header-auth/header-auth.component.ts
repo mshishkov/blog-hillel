@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { ROLES } from '../../models/roles';
+import { UserService } from '../../../core/services/user.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'aaa-header-auth',
@@ -8,11 +10,13 @@ import { ROLES } from '../../models/roles';
   styles: []
 })
 export class HeaderAuthComponent implements OnInit {
-  public currentUser: User;
 
-  constructor() {  }
+  constructor(private userService: UserService) {  }
 
   ngOnInit() {
   }
 
+  // get user() {
+    // return this.userService.currentUser().subscribe(data => user = data);
+  // }
 }

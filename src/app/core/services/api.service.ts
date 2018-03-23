@@ -40,11 +40,6 @@ export class ApiService {
   post(url: string, data: any, options?: any) {
     options = options || {};
     url = this.baseUrl + url;
-    const token = localStorage.getItem('token');
-
-    if (token) {
-      this.headers.append('Authorization', 'Bearer ' + token);
-    }
 
     if ( !options.hasOwnProperty('headers') ) {
       options.headers = this.headers;
@@ -58,13 +53,6 @@ export class ApiService {
   }
 
   private handleHttpError(error: HttpErrorResponse) {
-    // for (const k in error.error.errors) {
-    //   if (error.error.errors[k]) {
-    //     const notice = new Notify(k + ': ' + error.error.errors[k], 'danger');
-    //     this.notificationService.pushMessage(notice);
-    //   }
-    // }
-
     return ErrorObservable.create(error);
   }
 

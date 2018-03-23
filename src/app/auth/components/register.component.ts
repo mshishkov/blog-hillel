@@ -4,6 +4,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PasswordRepeatValidator } from '../../shared/directives/password-repeat-validator';
 import { Router } from '@angular/router';
 import { AuthService } from '../../_guard/auth.service';
+import { catchError, map } from 'rxjs/operators';
+import { HttpErrorResponse } from '@angular/common/http';
+import { NotificationService } from '../../core/services/notification.service';
+import { Notify } from '../../shared/models/notify';
+import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 
 @Component({
   selector: 'aaa-register',
@@ -16,13 +21,19 @@ export class RegisterComponent implements OnInit {
   constructor(
     private userService: UserService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private notificationService: NotificationService
   ) {
     this.regForm = this.formBuilder.group({
-      username: ['', Validators.compose([Validators.required, Validators.maxLength(30), Validators.minLength(6)])],
+      username: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(6)])],
       email: ['', Validators.compose([Validators.required, Validators.email])],
-      password: ['', Validators.compose([Validators.required, Validators.maxLength(30), Validators.minLength(6)])],
-      confirmPassword: ['', Validators.compose([ Validators.required, PasswordRepeatValidator() ])],
+      password: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(8)])],
+      confirmPassword: ['', Validators.compose([
+          Validators.required,
+          Validators.maxLength(20),
+          Validators.minLength(8),
+          PasswordRepeatValidator()
+      ])],
     });
   }
 
@@ -31,11 +42,23 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     if (this.regForm.dirty && this.regForm.valid) {
-      this.userService
-        .create(this.regForm.value)
+      this.userService.create(this.regForm.value)
+        .pipe(
+          catchError((error: HttpErrorResponse) => {
+            for (const k in error.error.errors) {
+              if (error.error.errors[k]) {
+                const notice = new Notify(k + ': ' + error.error.errors[k], 'danger');
+                this.notificationService.pushMessage(notice);
+              }
+            }
+            return new ErrorObservable(error);
+          })
+        )
+        .pipe(
+          map(data => data = data.user)
+        )
         .subscribe(data => {
-          this.userService.store(data);
-          this.router.navigateByUrl('/news');
+          this.router.navigateByUrl('/login');
         });
     }
   }

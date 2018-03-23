@@ -1,11 +1,11 @@
 <form action="" [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="auth-form">
   <div class="row">
-    <label for="username">Login: </label>
-    <input type="text" name="login" formControlName="username">
+    <label for="email">Login: </label>
+    <input type="email" name="login" formControlName="email">
   </div>
   <div class="row">
     <label for="password">Password: </label>
     <input type="password" name="password" formControlName="password">
   </div>
-  <button type="submit" [disabled]="!loginForm.value">Sign me in</button>
+  <button type="submit" [disabled]="!loginForm.valid">Sign me in</button>
 </form>

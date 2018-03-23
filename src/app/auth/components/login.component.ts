@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { UserService } from '../../core/services/user.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,10 +14,11 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required],
     });
    }
@@ -28,7 +30,10 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.userService
     .login( this.loginForm.value )
-    .subscribe( data => console.log('subscribed') );
+    .subscribe( data => {
+      this.userService.store(data);
+      this.router.navigateByUrl('/news');
+    } );
   }
 
 }
