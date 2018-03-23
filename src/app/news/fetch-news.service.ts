@@ -17,12 +17,13 @@ export class FetchNewsService {
     private apiFiltersService: ApiFilterService
   ) { }
 
-  getNews(filters = ''): Observable<{articles: News[]}> {
-    return this.api.get('articles?' + this.apiFiltersService.getFilters(), News);
+  getNews(): Observable<{articles: News[]}> {
+    return this.api.get('articles?' + this.apiFiltersService.getFilters());
   }
 
   getNewsBySlug(slug: string): Observable<News> {
-    return this.api.get(`articles/${slug}`, News)
+    return this.api
+    .get(`articles/${slug}`)
     .pipe(
       map((data: { article: News}) => data.article)
     );

@@ -6,21 +6,18 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable()
 export class NotificationService {
-  private messages: Notify[] = [];
-  private messages$: BehaviorSubject<any> = new BehaviorSubject(this.messages);
+  private messagesArray: Notify[] = [];
+  private messages$: BehaviorSubject<Notify[]> = new BehaviorSubject(this.messagesArray);
 
   constructor() { }
 
-  getMessages(): Observable<any[]> {
-    return this
-      .messages$
-      .asObservable();
+  pushMessage(message: Notify) {
+    this.messagesArray.push(message);
+    this.messages$.next([...this.messagesArray]);
   }
 
-  pushMessage(message: any): void {
-    this.messages.push(message);
-    console.log(message);
-    this.messages$.next([...this.messages]);
+  public get messages(): Observable<Notify[]> {
+    return this.messages$.asObservable();
   }
 
 }

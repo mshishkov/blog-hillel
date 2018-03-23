@@ -8,7 +8,6 @@ import { ROLES } from './shared/models/roles';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  appName = 'World News';
 
   ngOnInit() {
   }

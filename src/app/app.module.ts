@@ -1,3 +1,4 @@
+import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
 import { PreloaderService } from './shared/preloader.service';
 import { ApiFilterService } from './core/api.filter.service';
 import { FetchNewsService } from './news/fetch-news.service';
@@ -40,7 +41,8 @@ import { AuthService } from './_guard/auth.service';
     AuthorsEditorModule,
     RouterModule.forRoot([]),
     TagsModule,
-    AuthModule
+    AuthModule,
+    HttpClientModule
   ],
   providers: [
     FetchNewsService,

@@ -15,9 +15,8 @@ export class NotificationComponent implements OnInit {
   ngOnInit() {
   }
 
-  get notifications(): Observable<Notify[]> {
-    return this.notificationService
-      .getMessages();
+  public get notifications(): Observable<Notify[]> {
+    return this.notificationService.messages;
   }
 
 

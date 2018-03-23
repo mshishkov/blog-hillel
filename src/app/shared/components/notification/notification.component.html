@@ -1,7 +1,9 @@
 <div id="notifictions">
   <ul>
     <!-- <li *ngFor="let message of notifications">
-      <div class="alert"></div>
+      <div [ngClass]="{danger: message.type == 'danger', warning: message.type == 'warning', success: message.type == 'success'}">
+        {{ message.msg }}
+      </div>
     </li> -->
   </ul>
 </div>

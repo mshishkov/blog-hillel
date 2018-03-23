@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedComponent } from './components/shared.component';
@@ -37,7 +38,8 @@ export const aaaRoutes: Routes = [
     RouterModule.forChild(aaaRoutes),
     ReactiveFormsModule,
     AuthModule,
-    TagsModule
+    TagsModule,
+    HttpClientModule
   ],
   declarations: [
     SharedComponent,

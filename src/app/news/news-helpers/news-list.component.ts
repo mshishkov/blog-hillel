@@ -5,7 +5,7 @@ import { EventEmitter } from '@angular/core';
 import { NgSwitch } from '@angular/common';
 import { FetchNewsService } from '../fetch-news.service';
 import { Router, ActivatedRoute  } from '@angular/router';
-import { finalize } from 'rxjs/operators';
+import { finalize, map } from 'rxjs/operators';
 import { PreloaderService } from '../../shared/preloader.service';
 
 @Component({

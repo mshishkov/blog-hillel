@@ -61,8 +61,6 @@ export class ApiFilterService {
 
   setPage(page: number) {
     this.offset = this.limit * (page - 1);
-    console.log(this);
-
     return this;
   }
 

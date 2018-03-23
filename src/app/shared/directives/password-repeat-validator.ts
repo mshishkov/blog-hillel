@@ -7,11 +7,8 @@ export function PasswordRepeatValidator(compareParam = null): ValidatorFn {
       const confirmPassword = control.value;
 
       if (password !== confirmPassword) {
-        console.log('invalid');
         control.setErrors( {MismatchPassword: true} );
-        control.setInvalid();
       } else {
-        console.log('valid');
         return null;
       }
     }
