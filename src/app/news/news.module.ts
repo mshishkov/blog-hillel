@@ -6,8 +6,6 @@ import { NewsPreviewComponent } from './news-helpers/news-preview.component';
 import { SharedModule } from '../shared/shared.module';
 import { NewsListPinesComponent } from './news-helpers/news-list-pines.component';
 import { NewsEditorModule } from '../news-editor/news-editor.module';
-import { RouterModule } from '@angular/router';
-import { NewsRoutes } from './news-routes';
 import { HttpModule } from '@angular/http';
 import { NewsResolverService } from './news-resolver.service';
 import { FetchNewsService } from './fetch-news.service';
@@ -18,8 +16,7 @@ import { NewsFilterComponent } from './news-helpers/news-filter.component';
     CommonModule,
     SharedModule,
     NewsEditorModule,
-    HttpModule,
-    RouterModule.forChild( NewsRoutes )
+    HttpModule
   ],
   providers: [ NewsResolverService, FetchNewsService ],
   declarations: [NewsComponent, NewsListComponent, NewsPreviewComponent, NewsListPinesComponent, NewsFilterComponent],

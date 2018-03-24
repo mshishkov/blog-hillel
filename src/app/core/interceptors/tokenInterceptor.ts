@@ -4,13 +4,19 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const userToken = localStorage.getItem('token');
+    const headersConfig = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    };
 
-    intercept(reqest: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const userToken = localStorage.getItem('token');
-        if (userToken) {
-            reqest.headers.append('Authorization', userToken);
-        }
-        return next.handle(reqest);
+    if (userToken) {
+      headersConfig['Authorization'] = `Token ${userToken}`;
     }
 
+    const requestToken  = request.clone({ setHeaders: headersConfig });
+
+    return next.handle(requestToken);
+  }
 }

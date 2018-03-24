@@ -26,11 +26,15 @@ import { UserService } from './core/services/user.service';
 import { NotificationService } from './core/services/notification.service';
 import { AuthService } from './_guard/auth.service';
 import { TokenInterceptor } from './core/interceptors/TokenInterceptor';
+import { AppRoutes } from './app-routes';
+import { ContainerComponent } from './container.component';
+import { AuthResolver } from './_guard/authResolver';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ContainerComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,7 @@ import { TokenInterceptor } from './core/interceptors/TokenInterceptor';
     FormsModule,
     AuthorsModule,
     AuthorsEditorModule,
-    RouterModule.forRoot([]),
+    RouterModule.forRoot(AppRoutes),
     TagsModule,
     AuthModule,
     HttpClientModule
@@ -60,7 +64,8 @@ import { TokenInterceptor } from './core/interceptors/TokenInterceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }
+    },
+    AuthResolver
   ],
   bootstrap: [AppComponent]
 })

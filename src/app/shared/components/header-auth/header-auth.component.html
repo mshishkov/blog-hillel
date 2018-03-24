@@ -2,19 +2,16 @@
   <div class="auth-wrapper">
 
     <!-- hiddin when non-authorized -->
-    <ng-container *ngIf="currentUser">
+    <!-- <ng-container *ngIf="currentUser">
       <div class="img-holder" >
-        <img src="{{ currentUser.photo }}" class="" />
+        <img src="{{ currentUser.image }}" class="" />
       </div>
-      <div class="username">{{ currentUser.firstName + ' ' + currentUser.lastName}}
-        <br>
-        <small>@{{ currentUser.occupation }}</small>
-      </div>
+      <div class="username">{{ currentUser.username }} </div>
       <a href="#" class="user-logout">
         <i class="fas fa-sign-out-alt"></i>
       </a>
     </ng-container>
-
+  -->
 
     <!-- shown for non-athorized -->
     <ng-container *ngIf="!currentUser">

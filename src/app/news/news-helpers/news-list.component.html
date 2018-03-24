@@ -10,6 +10,15 @@
     </a>
   </div>
 
+  <aaa-pagination
+    [pagesTotal]="pagesTotal"
+    [currentPage]="currentPage"
+    [perPage]="perPage"
+    [forModel]="this.paginationModel"
+    [visiblePages]="3"
+    (changePage)="changePage($event, currentPage)"
+  ></aaa-pagination>
+
   <!-- news list with view mode -->
   <div [ngSwitch]="viewMode">
     <div class="piles-view" *ngSwitchCase="'piles'">

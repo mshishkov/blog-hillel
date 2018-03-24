@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from './shared/models/user';
-import { ROLES } from './shared/models/roles';
 
 @Component({
   selector: 'aaa-root',
