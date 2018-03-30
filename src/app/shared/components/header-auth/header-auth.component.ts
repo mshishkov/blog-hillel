@@ -16,11 +16,15 @@ export class HeaderAuthComponent implements OnInit {
 
   ngOnInit() {
   }
-/*
-  get currentUser(): Observable<User> {
-    return this.userService
-      .loggedUser$
-      .subscribe(data => this.user = data);
+
+  currentUser() {
+    return this.userService.loggedUser$
+    .subscribe(
+      data => {
+        console.log(data);
+        this.user = data;
+      }
+    );
   }
-  */
+
 }
