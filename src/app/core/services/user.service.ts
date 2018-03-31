@@ -25,8 +25,7 @@ export class UserService {
     return this.api
       .post('users/login', data)
       .subscribe(response => {
-        this.user$ = response.user;
-        this.store(this.user$);
+        this.setAuth(response.user);
         this.router.navigateByUrl('/news');
       });
   }
@@ -36,8 +35,9 @@ export class UserService {
     return this.api.post('users', data);
   }
 
-  store(user): void {
-    return this.authService.store(user);
+  setAuth(user): void {
+    this.user$.next(user as User);
+    this.authService.storeToken(user.token);
   }
 
   destroyUser(): void {
@@ -49,12 +49,23 @@ export class UserService {
     return this.api
       .get('user')
       .pipe(
-        tap(data => this.store(data.user)),
+        tap(data => {
+          this.user$.next(data.user as User);
+        }),
         catchError(err => {
           this.destroyUser();
           return of(false);
         })
       );
+  }
+
+  update(data) {
+    data = { user: data };
+    return this.api
+      .put('user', data)
+      .subscribe(response => {
+        this.setAuth(response.user);
+      });
   }
 
 }

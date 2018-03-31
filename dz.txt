@@ -18,3 +18,56 @@
 
 Хранить данные пользователя
 
+
+
+TEST
+
+
+
+=================================================================
+
+
+
+                      ZONE
+
+changeDetection: ChangeDetectionStrategy.OnPush
+
+
+
+
+DestroyComponent implement NgOnDestroy
+  public take: boolean; // behavioursubject
+
+NgOnDestroy(){
+  this.take = false;
+}
+
+
+
+
+
+во всех компонентах
+extend DestroyComponent в классы -> в pipe
+.subscribe(
+
+).pipe(
+  TakeUntil(this.take);
+)
+
+
+
+
+
+
+------------------
+
+
+ngrx store
+https://github.com/ngrx/store
+
+
+
+
+
+
+

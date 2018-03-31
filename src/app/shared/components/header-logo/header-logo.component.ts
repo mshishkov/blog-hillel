@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy } from '@angular/core/src/change_detection/constants';
 
 @Component({
   selector: 'aaa-header-logo',

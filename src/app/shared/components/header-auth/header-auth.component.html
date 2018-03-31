@@ -2,21 +2,21 @@
   <div class="auth-wrapper">
 
     <!-- hiddin when non-authorized -->
-    <ng-container *ngIf="user">
+    <ng-container *ngIf="isUserReady">
       <div class="img-holder" >
         <!-- <img src="{{ user.image }}" class="" /> -->
       </div>
-      <div class="username">{{ user.username }} </div>
-      <a href="#" class="user-logout">
+      <div class="username">{{ currentUser.username }} </div>
+      <a href="#" class="user-logout" (click)="logoutUser($event)">
         <i class="fas fa-sign-out-alt"></i>
       </a>
     </ng-container>
 
 
     <!-- shown for non-athorized -->
-    <ng-container *ngIf="!currentUser">
+    <ng-container *ngIf="!isUserReady">
       <div class="login-text">Authorization</div>
-      <a href="#" class="user-login" [routerLink]="['/register']">
+      <a href="#" class="user-login" [routerLink]="['/login']">
         <i class="fas fa-sign-in-alt"></i>
       </a>
     </ng-container>
@@ -24,19 +24,19 @@
   </div>
 
   <!-- hidden when non-authorized -->
-  <div class="auth-dropdown-wrapper" *ngIf="currentUser">
+  <div class="auth-dropdown-wrapper" *ngIf="isUserReady">
     <ul class="authdropdown-list">
       <li>
-        <a href="#">
+        <a href="#" [routerLink]="['/profile']">
           <i class="far fa-address-card"></i> My profile</a>
       </li>
       <!-- secured part for writers/admins -->
       <li *ngIf="true">
-        <a href="#">
+        <a href="#" [routerLink]="['/news/create']">
           <i class="fas fa-plus-square"></i> Create news</a>
       </li>
       <li>
-        <a href="#">
+        <a href="#" (click)="logoutUser($event)">
           <i class="fas fa-sign-out-alt"></i> Logout</a>
       </li>
     </ul>

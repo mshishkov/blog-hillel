@@ -52,6 +52,21 @@ export class ApiService {
       );
   }
 
+  put(url: string, data: any, options?: any) {
+    options = options || {};
+    url = this.baseUrl + url;
+
+    if ( !options.hasOwnProperty('headers') ) {
+      options.headers = this.headers;
+    }
+
+    return this.http
+      .put(url, data, options)
+      .pipe(
+        catchError(this.handleHttpError)
+      );
+  }
+
   private handleHttpError(error: HttpErrorResponse) {
     return ErrorObservable.create(error);
   }

@@ -11,7 +11,7 @@ export class TokenInterceptor implements HttpInterceptor {
       'Accept': 'application/json'
     };
 
-    if (userToken) {
+    if (userToken && userToken !== 'undefined') {
       headersConfig['Authorization'] = `Token ${userToken}`;
     }
 

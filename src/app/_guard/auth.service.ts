@@ -26,8 +26,10 @@ export class AuthService {
     this.token = null;
   }
 
-  store(user) {
-    localStorage.setItem('token', user.token );
+  storeToken(token) {
+    if (token && token !== 'undefined') {
+      localStorage.setItem('token', token );
+    }
   }
 
 }
